@@ -4,11 +4,11 @@ Repositorio del proyecto de la asignatura Tecnología y Diseño de Bases de Dato
 
 ## Enunciado del Proyecto
 
-El enunciado completo del proyecto se encuentra en el archivo [practica-2324-enunciado.pdf](practica-2324-enunciado.pdf). Por favor, asegúrate de leer este documento detenidamente para comprender los detalles y requisitos del proyecto.
+El enunciado completo del proyecto se encuentra en el archivo [practica-2324-enunciado.pdf](Enunciados/practica-2324-enunciado.pdf). Por favor, asegúrate de leer este documento detenidamente para comprender los detalles y requisitos del proyecto.
 
 ## Base de Datos
 
-Los datos para la creación de la base de datos se encuentran en el archivo [reglamento.pdf](reglamento.pdf). 
+Los datos para la creación de la base de datos se encuentran en el archivo [reglamento.pdf](Enunciados/reglamento.pdf). 
 
 ## Objetivo del Proyecto
 
