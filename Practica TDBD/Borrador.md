@@ -1,4 +1,4 @@
-## Requisitos
+## REQUISITOS
 ### Sustancias Activas
 #### Item 1
 #### 1.1 
@@ -82,38 +82,45 @@ Por cada instalación del productor se almacena su nombre y direccion
 #### 1.3
 
 
-## Transacciones
+## TRANSACCIONES
 
-Añadir el identificador de una sustancia activa. 
-Añadir el identificador de un microorganismo. 
-Añadir la ubicación de la fábrica de un fabricante. 
-Añadir el código de desarrollo del fabricante. 
-Añadir el método de fabricación de una sustancia activa. 
-Añadir el punto de fusión de una sustancia activa. 
-Añadir el punto de inflamaciónd de una sustancia activa. 
-Añadir el nombre del productor del microorganismo. 
-Añadir el nombre del solicitante del microorganismo. 
-Añadir el número de teléfono del punto central del productor del microorganismo. 
-Añadir el tipo de microorganismo.
+- Añadir el identificador de una sustancia activa. 
+- Añadir el identificador de un microorganismo. 
+- Añadir la ubicación de la fábrica de un fabricante. 
+- Añadir el código de desarrollo del fabricante. 
+- Añadir el método de fabricación de una sustancia activa. 
+- Añadir el punto de fusión de una sustancia activa. 
+- Añadir el punto de inflamación de una sustancia activa. 
+- Añadir el nombre del productor del microorganismo. 
+- Añadir el nombre del solicitante del microorganismo. 
+- Añadir el número de teléfono del punto central del productor del microorganismo. 
+- Añadir el tipo de microorganismo.
 
-Modificar los datos de una sustancia activa. 
-Modificar los datos de un fabricante de una sustancia activa. 
-Modificar la dirección de un fabricante de una sustancia activa. Modificar el número de teléfono del fabricante de una sustancia activa. Modificar los datos de un solicitante de una sustancia activa. Modificar la dirección de un solicitante de una sustancia activa. Modificar el número de teléono del solicitante de una sustancia activa. Modificar los datos de un microorganismo. 
-Eliminar los datos de una sustancia activa. 
-Eliminar los datos de un fabricante. 
-Eliminar los datos de un solicitante. 
-Eliminar los datos de un microorganismo. 
-Eliminar los datos de un productor.
+- Modificar los datos de una sustancia activa. 
+- Modificar los datos de un fabricante de una sustancia activa. 
+- Modificar la dirección de un fabricante de una sustancia activa.
+- Modificar el número de teléfono del fabricante de una sustancia activa. Modificar los datos de un solicitante de una sustancia activa. Modificar la dirección de un solicitante de una sustancia activa. Modificar el número de teléfono del solicitante de una sustancia activa. Modificar los datos de un microorganismo. 
 
-Consultar el nombre de un determinado solicitante. 
-Consultar la dirección de un determinado fabricante. 
-Consultar el tipo de componente de una determinada sustancia activa. Consultar el nombre común de una determinada sustancia activa. Consultar el punto de fusión de una determinada sustancia activa. Consultar el peso molecular de una sustancia activa. 
-Consultar todas las propiedades de una determinada sustancia activa. Consultar cuantas sustancias activas pertenecen a un determinado fabricante. 
-Consultar cuantas sustancias activas pertenecen a un determinado fabricante. 
-Consultar el número de sustancias activas con un punto de fusión determinado. Consultar el nombre de un determinado productor.
+- Eliminar los datos de una sustancia activa. 
+- Eliminar los datos de un fabricante. 
+- Eliminar los datos de un solicitante. 
+- Eliminar los datos de un microorganismo. 
+- Eliminar los datos de un productor.
+
+- Consultar el nombre de un determinado solicitante. 
+- Consultar la dirección de un determinado fabricante. 
+- Consultar el tipo de componente de una determinada sustancia activa.
+- Consultar el nombre común de una determinada sustancia activa.
+- Consultar el punto de fusión de una determinada sustancia activa.
+- Consultar el peso molecular de una sustancia activa. 
+- Consultar todas las propiedades de una determinada sustancia activa.
+- Consultar cuantas sustancias activas pertenecen a un determinado fabricante. 
+- Consultar cuantas sustancias activas pertenecen a un determinado fabricante. 
+- Consultar el número de sustancias activas con un punto de fusión determinado. 
+- Consultar el nombre de un determinado productor.
 
 
-## Entidades
+## ENTIDADES
 
 ### Sustancias Activas
 
@@ -139,12 +146,56 @@ Consultar el número de sustancias activas con un punto de fusión determinado. 
 		- INSTALACION(id_instalacion, nombre, direccion)
 		- PUNTO_CONTACTO(tipo,nombre,tlf,fax)
 
+## MODELO RELACIONAL
+
+### Sustancias Activas (Falta poner propiedades y su relacion)
+
+SUSTANCIA_ACTIVA(nombre_comun, fecha_regisro, nombre_quimico, cod_desarrollo, numeros, formulas,pureza, perfil_analitico, funcion, efectos_org_nocivos, ambito_utilizacion, modo_accion, , metodos_precauciones, procedimientos_destruccion, medidas_emergencia, informacion_3.4, informacion_3.6, informacion_3.7, evaluacion_ambiental, estudios_ecotoxicologicos)
+
+SOLICITANTE(id_solicitante, nombre, direccion)
+
+CONTACTO(nombre_contacto, tlf, fax)
+
+INDICA(nombre_contacto, id_solicitante)
+
+SOLICITA(id_solicitante, nombre_comun, fecha)
+
+COMPONENTE(nombre_comun, tipo,funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido)
+
+FORMADO(nombre_comun_sust_activa, nombre_comun_componente)
+
+FABRICANTE(id_fabricante, nombre, direccion)
+
+FABRICA(nombre_comun, id_fabricante)
+
+FÁBRICA(id_fabrica, nombre, direccion, metodo_fabricacion, id_fabricante)
+
+PUNTO_CONTACTO(nombre, tipo, tlf, fax, id_fabricante)
+
+PROPIEDADES(punto_fusion, punto_ebullicion, densidad_relativa, volatilidad, presion_vapor, aspecto, espectros, extincion_molecular, solubilidad_agua, solubilidad_organicos, coeficiente_particion, inflamabilidad, punto_inflamacion, propiedades_explosivas, tension_superficial, propiedades_comburentes, informacion_2.9,  informacion_2.10)
+
+POSEE(...)
 
 
+### Microorganismos
 
-**En negrita las que son cadenas de texto por ser resumen de analítico**
+MICROORGANISMO(numero_entrada, nombre_cientifico, descripcion_especie, taxonomia, especificaciones, metodos_criterios, nombres, codigos, relaciones_patogenos)
 
-Preguntar sobre 1.10, 2.9 y 2.10, 3.4
+SOLICITANTE(id_solicitante, nombre, direccion)
+
+SOLICITA(id_solicitante, nro_entrada, fecha)
+
+CONTACTO(nombre, cargo, tlf, fax, id_solicitante)
+
+PRODUCTOR(id_productor, nombre, direccion)
+
+PRODUCE(numero_entrada, id_productor)
+
+PUNTO_CONTACTO(nombre, tipo, tlf, fax, id_productor)
+
+INSTALACION(id_instalacion, nombre, direccion, id_productor)
+
+
 
 PARTE A: Item 1, 2
 PARTE B: 1.1, 1.2
