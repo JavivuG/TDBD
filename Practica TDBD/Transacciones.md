@@ -10,16 +10,19 @@
 - Añadir el número de teléfono del punto central del productor del microorganismo. 
 - Añadir el tipo de microorganismo.
 
+
 - Modificar los datos de una sustancia activa. 
 - Modificar los datos de un fabricante de una sustancia activa. 
 - Modificar la dirección de un fabricante de una sustancia activa.
 - Modificar el número de teléfono del fabricante de una sustancia activa. Modificar los datos de un solicitante de una sustancia activa. Modificar la dirección de un solicitante de una sustancia activa. Modificar el número de teléfono del solicitante de una sustancia activa. Modificar los datos de un microorganismo. 
+
 
 - Eliminar los datos de una sustancia activa. 
 - Eliminar los datos de un fabricante. 
 - Eliminar los datos de un solicitante. 
 - Eliminar los datos de un microorganismo. 
 - Eliminar los datos de un productor.
+
 
 - Consultar el nombre de un determinado solicitante. 
 - Consultar la dirección de un determinado fabricante. 
@@ -32,4 +35,3 @@
 - Consultar cuantas sustancias activas pertenecen a un determinado fabricante. 
 - Consultar el número de sustancias activas con un punto de fusión determinado. 
 - Consultar el nombre de un determinado productor.
-
