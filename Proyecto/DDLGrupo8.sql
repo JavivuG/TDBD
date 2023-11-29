@@ -109,7 +109,12 @@ CREATE TABLE SUSTANCIA_ACTIVA (
 
 
 
-------------------------------------------------------------------------|
+-- Crear la tabla SOLICITANTE
+CREATE TABLE SOLICITANTE (
+    nombre_solicitante VARCHAR2(50) PRIMARY KEY,
+    direccion VARCHAR2(100)
+);
+
 ---------------------------MICROOGANISMOS-------------------------------|
 ------------------------------------------------------------------------|
 
@@ -125,43 +130,29 @@ CREATE TABLE MICROORGANISMO (
     metodos_criterios VARCHAR2(200),
     codigos VARCHAR2(50),
     relaciones_patogenos VARCHAR2(200)
-);
-
--- Crear la tabla CONTACTO
-CREATE TABLE CONTACTO (
-    nombre VARCHAR2(50),
-    cargo VARCHAR2(50),
-    tlf VARCHAR2(15),
-    fax VARCHAR2(15),
-    id_solicitante NUMBER,
-    PRIMARY KEY (nombre, id_solicitante),
-    FOREIGN KEY (id_solicitante) REFERENCES SOLICITANTE(id_solicitante)
+    CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5),
 );
 
 -- Crear la tabla PRODUCTOR
 CREATE TABLE PRODUCTOR (
-    id_productor NUMBER PRIMARY KEY,
-    nombre VARCHAR2(50),
+    nombre_productor VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
 
--- Crear la tabla PUNTO_CONTACTO
-CREATE TABLE PUNTO_CONTACTO (
-    nombre VARCHAR2(50),
-    tipo VARCHAR2(50),
-    tlf VARCHAR2(15),
-    fax VARCHAR2(15),
-    id_productor NUMBER,
-    PRIMARY KEY (nombre, id_productor),
-    FOREIGN KEY (id_productor) REFERENCES PRODUCTOR(id_productor)
-);
 
--- Crear la tabla INSTALACION
-CREATE TABLE INSTALACION (
-    id_instalacion NUMBER PRIMARY KEY,
-    nombre VARCHAR2(50),
-    direccion VARCHAR2(100),
-    id_productor NUMBER,
-    FOREIGN KEY (id_productor) REFERENCES PRODUCTOR(id_productor)
+-- Crear la tabla CONTACTO
+-- DROP TABLE CONTACTO CASCADE CONSTRAINTS;
+CREATE TABLE CONTACTO (
+    tlf NUMBER PRIMARY KEY,
+    cargo VARCHAR2(20),
+    tipo VARCHAR2(20),
+    nombre_contacto VARCHAR2(50),
+    fax NUMBER,
+    nombre_productor VARCHAR2(50),
+    nombre_solicitante VARCHAR2(50),
+    FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
+    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
+    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
+    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
 
