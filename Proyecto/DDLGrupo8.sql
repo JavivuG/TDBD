@@ -4,19 +4,19 @@
 
 -- Crear la tabla SOLICITANTE
 CREATE TABLE SOLICITANTE (
-    nombre_solicitante NUMBER PRIMARY KEY,
+    nombre_solicitante VARCHAR(20) PRIMARY KEY,
     nombre VARCHAR2(50),
     direccion VARCHAR2(100)
 );
 
 -- Crear la tabla CONTACTO
 CREATE TABLE CONTACTO (
-    tlf VARCHAR2(15) PRIMARY KEY,
+    tlf NUMBER PRIMARY KEY,
     cargo VARCHAR2(20),
-    cargo VARCHAR2(20)
+    tipo VARCHAR2(20),
     nombre_contacto VARCHAR2(50),
-    fax VARCHAR2(15)
-    FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante)
+    fax NUMBER,
+    FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante),
     FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante)
 );
 
@@ -34,15 +34,13 @@ CREATE TABLE COMPONENTE (
 
 -- Crear la tabla FABRICANTE
 CREATE TABLE FABRICANTE (
-    nombre_fabricante NUMBER PRIMARY KEY,
-    nombre VARCHAR2(50),
+    nombre_fabricante VARCHAR(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
 
 -- Crear la tabla FÁBRICA
 CREATE TABLE FABRICA (
-    nombre_fabrica NUMBER PRIMARY KEY,
-    nombre VARCHAR2(50),
+    nombre_fabrica VARCHAR(50) PRIMARY KEY,
     direccion VARCHAR2(100),
     metodo_fabricacion VARCHAR2(100),
     nombre_fabricante NUMBER,
