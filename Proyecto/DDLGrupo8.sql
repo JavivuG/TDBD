@@ -16,7 +16,6 @@ CREATE TABLE FABRICANTE (
     direccion VARCHAR2(100)
 );
 
-
 -- Crear la tabla COMPONENTE
 -- DROP TABLE COMPONENTE CASCADE CONSTRAINTS;
 CREATE TABLE COMPONENTE (
@@ -102,12 +101,9 @@ CREATE TABLE SUSTANCIA_ACTIVA (
     CONSTRAINT check_fecha_registro CHECK (fecha_registro >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
 );
 
-
 ------------------------------------------------------------------------|
 ---------------------------COMUN----------------------------------------|
 ------------------------------------------------------------------------|
-
-
 
 -- Crear la tabla SOLICITANTE
 CREATE TABLE SOLICITANTE (
@@ -139,7 +135,6 @@ CREATE TABLE PRODUCTOR (
     direccion VARCHAR2(100)
 );
 
-
 -- Crear la tabla CONTACTO
 -- DROP TABLE CONTACTO CASCADE CONSTRAINTS;
 CREATE TABLE CONTACTO (
@@ -156,3 +151,21 @@ CREATE TABLE CONTACTO (
     CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
 
+
+
+-- Crear la tabla UNIFICADA_CONTACTO
+CREATE TABLE UNIFICADA_CONTACTO (
+    tlf NUMBER PRIMARY KEY,
+    cargo VARCHAR2(20),
+    tipo VARCHAR2(20),
+    nombre_contacto VARCHAR2(50),
+    fax NUMBER,
+    nombre_fabricante VARCHAR2(50),
+    nombre_productor VARCHAR2(50) NULL, -- Permitir valores nulos
+    nombre_solicitante VARCHAR2(50) NULL, -- Permitir valores nulos
+    FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante),
+    FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
+    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
+    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
+    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
+);
