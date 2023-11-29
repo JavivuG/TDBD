@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------|
+---------------------------SUSTANCIA_ACTIVA-------------------------------|
+--------------------------------------------------------------------------|
+
 -- Crear la tabla SOLICITANTE
 CREATE TABLE SOLICITANTE (
     id_solicitante NUMBER PRIMARY KEY,
@@ -8,6 +12,8 @@ CREATE TABLE SOLICITANTE (
 -- Crear la tabla CONTACTO
 CREATE TABLE CONTACTO (
     tlf VARCHAR2(15) PRIMARY KEY,
+    cargo VARCHAR2(20),
+    cargo VARCHAR2(20)
     nombre_contacto VARCHAR2(50),
     fax VARCHAR2(15)
 );
@@ -37,16 +43,6 @@ CREATE TABLE FABRICA (
     nombre VARCHAR2(50),
     direccion VARCHAR2(100),
     metodo_fabricacion VARCHAR2(100),
-    id_fabricante NUMBER,
-    FOREIGN KEY (id_fabricante) REFERENCES FABRICANTE(id_fabricante)
-);
-
--- Crear la tabla PUNTO_CONTACTO
-CREATE TABLE PUNTO_CONTACTO (
-    tlf VARCHAR2(15) PRIMARY KEY,
-    tipo VARCHAR2(50),
-    nombre VARCHAR2(50),
-    fax VARCHAR2(15),
     id_fabricante NUMBER,
     FOREIGN KEY (id_fabricante) REFERENCES FABRICANTE(id_fabricante)
 );
@@ -92,3 +88,71 @@ CREATE TABLE SUSTANCIA_ACTIVA (
     informacion_2.9 VARCHAR2(100),
     informacion_2.10 VARCHAR2(100)
 );
+
+
+
+
+
+------------------------------------------------------------------------|
+---------------------------MICROOGANISMOS-------------------------------|
+------------------------------------------------------------------------|
+
+-- Crear la tabla MICROORGANISMO
+CREATE TABLE MICROORGANISMO (
+    numero_entrada NUMBER PRIMARY KEY,
+    nombre_cientifico VARCHAR2(100),
+    nombres VARCHAR2(100),
+    descripcion VARCHAR2(200),
+    especie VARCHAR2(50),
+    taxonomia VARCHAR2(100),
+    especificaciones VARCHAR2(200),
+    metodos_criterios VARCHAR2(200),
+    codigos VARCHAR2(50),
+    relaciones_patogenos VARCHAR2(200)
+);
+
+-- Crear la tabla SOLICITANTE
+CREATE TABLE SOLICITANTE (
+    id_solicitante NUMBER PRIMARY KEY,
+    nombre VARCHAR2(50),
+    direccion VARCHAR2(100)
+);
+
+-- Crear la tabla CONTACTO
+CREATE TABLE CONTACTO (
+    nombre VARCHAR2(50),
+    cargo VARCHAR2(50),
+    tlf VARCHAR2(15),
+    fax VARCHAR2(15),
+    id_solicitante NUMBER,
+    PRIMARY KEY (nombre, id_solicitante),
+    FOREIGN KEY (id_solicitante) REFERENCES SOLICITANTE(id_solicitante)
+);
+
+-- Crear la tabla PRODUCTOR
+CREATE TABLE PRODUCTOR (
+    id_productor NUMBER PRIMARY KEY,
+    nombre VARCHAR2(50),
+    direccion VARCHAR2(100)
+);
+
+-- Crear la tabla PUNTO_CONTACTO
+CREATE TABLE PUNTO_CONTACTO (
+    nombre VARCHAR2(50),
+    tipo VARCHAR2(50),
+    tlf VARCHAR2(15),
+    fax VARCHAR2(15),
+    id_productor NUMBER,
+    PRIMARY KEY (nombre, id_productor),
+    FOREIGN KEY (id_productor) REFERENCES PRODUCTOR(id_productor)
+);
+
+-- Crear la tabla INSTALACION
+CREATE TABLE INSTALACION (
+    id_instalacion NUMBER PRIMARY KEY,
+    nombre VARCHAR2(50),
+    direccion VARCHAR2(100),
+    id_productor NUMBER,
+    FOREIGN KEY (id_productor) REFERENCES PRODUCTOR(id_productor)
+);
+
