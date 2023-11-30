@@ -2,22 +2,25 @@
 ---------------------------SUSTANCIA_ACTIVA-------------------------------|
 --------------------------------------------------------------------------|
 
--- Crear la tabla SOLICITANTE
---DROP TABLE SOLICITANTE CASCADE CONSTRAINTS;
+-----------------
+-- SOLICITANTE --
+-----------------
 CREATE TABLE SOLICITANTE (
     nombre_solicitante VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
 
--- Crear la tabla FABRICANTE
---DROP TABLE FABRICANTE CASCADE CONSTRAINTS;
+----------------
+-- FABRICANTE --
+----------------
 CREATE TABLE FABRICANTE (
     nombre_fabricante VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
 
--- Crear la tabla COMPONENTE
--- DROP TABLE COMPONENTE CASCADE CONSTRAINTS;
+----------------
+-- COMPONENTE --
+----------------
 CREATE TABLE COMPONENTE (
     nombre_comun VARCHAR2(50) PRIMARY KEY,
     tipo VARCHAR2(50),
@@ -30,8 +33,9 @@ CREATE TABLE COMPONENTE (
     CONSTRAINT check_peso_positivo CHECK (peso_molecular > 0)
 );
 
--- Crear la tabla CONTACTO
--- DROP TABLE CONTACTO CASCADE CONSTRAINTS;
+--------------
+-- CONTACTO --
+--------------
 CREATE TABLE CONTACTO (
     tlf NUMBER PRIMARY KEY,
     cargo VARCHAR2(20),
@@ -46,8 +50,9 @@ CREATE TABLE CONTACTO (
     CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
 
--- Crear la tabla FÁBRICA
--- DROP TABLE FABRICA CASCADE CONSTRAINTS;
+-------------
+-- FABRICA --
+-------------
 CREATE TABLE FABRICA (
     nombre_fabrica VARCHAR(50) PRIMARY KEY,
     direccion VARCHAR2(100),
@@ -56,8 +61,9 @@ CREATE TABLE FABRICA (
     FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante)
 );
 
--- Crear la tabla SUSTANCIA_ACTIVA
--- DROP TABLE SUSTANCIA_ACTIVA CASCADE CONSTRAINTS;
+----------------------
+-- SUSTANCIA_ACTIVA --
+----------------------
 CREATE TABLE SUSTANCIA_ACTIVA (
     cod_desarrollo NUMBER PRIMARY KEY,
     nombre_comun VARCHAR2(50),
@@ -101,42 +107,79 @@ CREATE TABLE SUSTANCIA_ACTIVA (
     CONSTRAINT check_fecha_registro CHECK (fecha_registro >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
 );
 
-------------------------------------------------------------------------|
----------------------------COMUN----------------------------------------|
-------------------------------------------------------------------------|
-
--- Crear la tabla SOLICITANTE
-CREATE TABLE SOLICITANTE (
-    nombre_solicitante VARCHAR2(50) PRIMARY KEY,
-    direccion VARCHAR2(100)
+--------------
+-- SOLICITA --
+--------------
+CREATE TABLE SOLICITA (
+    nombre_solicitante VARCHAR2(50),
+    cod_desarrollo NUMBER,
+    fecha DATE,
+    PRIMARY KEY (nombre_solicitante, cod_desarrollo),
+    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
+    FOREIGN KEY (cod_desarrollo) REFERENCES SUSTANCIA_ACTIVA(cod_desarrollo),
+    CONSTRAINT check_fecha_registro CHECK (fecha_registro >= TO_DATE('2010-01-01', 'YYYY-MM-DD')),
+    CONSTRAINT check_cod_desarrollo CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7)
 );
 
+-------------
+-- FORMADO --
+-------------
+CREATE TABLE FORMADO (
+    cod_desarrollo NUMBER,
+    nombre_comun_componente VARCHAR2(50),
+    PRIMARY KEY (cod_desarrollo, nombre_comun_componente),
+    FOREIGN KEY (cod_desarrollo) REFERENCES SUSTANCIA_ACTIVA(cod_desarrollo),
+    FOREIGN KEY (nombre_comun_componente) REFERENCES COMPONENTE(nombre_comun),
+    CONSTRAINT check_cod_desarrollo CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7)
+);
+
+----------------
+-- FABRICARSE --
+----------------
+CREATE TABLE FABRICARSE (
+    cod_desarrollo NUMBER,
+    nombre_fabricante VARCHAR2(50),
+    PRIMARY KEY (cod_desarrollo, nombre_comun_componente),
+    FOREIGN KEY (cod_desarrollo) REFERENCES SUSTANCIA_ACTIVA(cod_desarrollo),
+    FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante),
+    CONSTRAINT check_cod_desarrollo CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7)
+);
+
+
+
+
+------------------------------------------------------------------------|
 ---------------------------MICROOGANISMOS-------------------------------|
 ------------------------------------------------------------------------|
 
--- Crear la tabla MICROORGANISMO
+--------------------
+-- MICROORGANISMO --
+--------------------
 CREATE TABLE MICROORGANISMO (
     numero_entrada NUMBER PRIMARY KEY,
     nombre_cientifico VARCHAR2(100),
     nombres VARCHAR2(100),
-    descripcion VARCHAR2(200),
-    especie VARCHAR2(50),
+    descripcion_especie VARCHAR2(200),
     taxonomia VARCHAR2(100),
     especificaciones VARCHAR2(200),
     metodos_criterios VARCHAR2(200),
+    nombre VARCHAR2(50),
     codigos VARCHAR2(50),
     relaciones_patogenos VARCHAR2(200)
     CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5),
 );
 
--- Crear la tabla PRODUCTOR
+---------------
+-- PRODUCTOR --
+---------------
 CREATE TABLE PRODUCTOR (
     nombre_productor VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
 
--- Crear la tabla CONTACTO
--- DROP TABLE CONTACTO CASCADE CONSTRAINTS;
+--------------
+-- CONTACTO --
+--------------
 CREATE TABLE CONTACTO (
     tlf NUMBER PRIMARY KEY,
     cargo VARCHAR2(20),
@@ -168,4 +211,40 @@ CREATE TABLE UNIFICADA_CONTACTO (
     FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
     CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
     CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
+);
+
+-----------------
+-- INSTALACION --
+-----------------
+CREATE TABLE INSTALACION (
+    nombre_instalacion VARCHAR2(50) PRIMARY KEY,
+    direccion VARCHAR2(100),
+    nombre_productor VARCHAR2(50),
+    FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor)
+);
+
+--------------
+-- SOLICITA --
+--------------
+CREATE TABLE SOLICITA (
+    nombre_solicitante VARCHAR2(50),
+    numero_entrada NUMBER,
+    fecha DATE,
+    PRIMARY KEY (nombre_solicitante, numero_entrada),
+    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
+    FOREIGN KEY (numero_entrada) REFERENCES MICROORGANISMO(numero_entrada),
+    CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5),
+    CONSTRAINT check_fecha_registro CHECK (fecha_registro >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
+);
+
+-------------
+-- PRODUCE --
+-------------
+CREATE TABLE PRODUCE (
+    numero_entrada NUMBER,
+    nombre_productor VARCHAR2(50),
+    PRIMARY KEY (numero_entrada, nombre_productor),
+    FOREIGN KEY (numero_entrada) REFERENCES MICROORGANISMO(numero_entrada),
+    FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
+    CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5)
 );
