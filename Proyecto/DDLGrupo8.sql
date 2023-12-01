@@ -8,6 +8,13 @@ CREATE TABLE SOLICITANTE (
     nombre_solicitante VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
+----------------
+-- FABRICANTE --
+----------------
+CREATE TABLE FABRICANTE (
+    nombre_fabricante VARCHAR2(50) PRIMARY KEY,
+    direccion VARCHAR2(100)
+);
 
 --------------------------------------------------------------------------|
 ---------------------------PARTE_SUSTANCIA_ACTIVA-------------------------|
@@ -26,13 +33,6 @@ CREATE TABLE CONTACTO_FABRICANTE (
     FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
     CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
     CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
-);
-----------------
--- FABRICANTE --
-----------------
-CREATE TABLE FABRICANTE (
-    nombre_fabricante VARCHAR2(50) PRIMARY KEY,
-    direccion VARCHAR2(100)
 );
 
 ----------------
@@ -149,6 +149,14 @@ CREATE TABLE FABRICARSE (
 ------------------------------------------------------------------------|
 ---------------------------PARTE_MICROOGANISMOS-------------------------|
 ------------------------------------------------------------------------|
+---------------
+-- PRODUCTOR --
+---------------
+CREATE TABLE PRODUCTOR (
+    nombre_productor VARCHAR2(50) PRIMARY KEY,
+    direccion VARCHAR2(100)
+);
+
 --------------------
 -- CONTACTO_PRODUCTOR --
 --------------------
@@ -180,14 +188,6 @@ CREATE TABLE MICROORGANISMO (
     codigos VARCHAR2(50),
     relaciones_patogenos VARCHAR2(200)
     CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5),
-);
-
----------------
--- PRODUCTOR --
----------------
-CREATE TABLE PRODUCTOR (
-    nombre_productor VARCHAR2(50) PRIMARY KEY,
-    direccion VARCHAR2(100)
 );
 
 -----------------
