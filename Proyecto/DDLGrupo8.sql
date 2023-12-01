@@ -1,7 +1,6 @@
 --------------------------------------------------------------------------|
----------------------------SUSTANCIA_ACTIVA-------------------------------|
+---------------------------COMPARTIDOS------------------------------------|
 --------------------------------------------------------------------------|
-
 -----------------
 -- SOLICITANTE --
 -----------------
@@ -10,6 +9,24 @@ CREATE TABLE SOLICITANTE (
     direccion VARCHAR2(100)
 );
 
+--------------------------------------------------------------------------|
+---------------------------PARTE_SUSTANCIA_ACTIVA-------------------------|
+--------------------------------------------------------------------------|
+------------------------
+-- UNIFICADA_CONTACTO --
+------------------------
+CREATE TABLE CONTACTO_FABRICANTE (
+    tlf NUMBER PRIMARY KEY,
+    cargo VARCHAR2(20),
+    nombre_contacto VARCHAR2(50),
+    fax NUMBER,
+    nombre_fabricante VARCHAR2(50),
+    nombre_solicitante VARCHAR2(50),
+    FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante),
+    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
+    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
+    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
+);
 ----------------
 -- FABRICANTE --
 ----------------
@@ -31,23 +48,6 @@ CREATE TABLE COMPONENTE (
     peso_molecular NUMBER,
     contenido VARCHAR2(50),
     CONSTRAINT check_peso_positivo CHECK (peso_molecular > 0)
-);
-
---------------
--- CONTACTO --
---------------
-CREATE TABLE CONTACTO (
-    tlf NUMBER PRIMARY KEY,
-    cargo VARCHAR2(20),
-    tipo VARCHAR2(20),
-    nombre_contacto VARCHAR2(50),
-    fax NUMBER,
-    nombre_fabricante VARCHAR2(50),
-    nombre_solicitante VARCHAR2(50),
-    FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante),
-    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
-    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
-    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
 
 -------------
@@ -146,11 +146,24 @@ CREATE TABLE FABRICARSE (
 );
 
 
-
-
 ------------------------------------------------------------------------|
----------------------------MICROOGANISMOS-------------------------------|
+---------------------------PARTE_MICROOGANISMOS-------------------------|
 ------------------------------------------------------------------------|
+--------------------
+-- CONTACTO_PRODUCTOR --
+--------------------
+CREATE TABLE CONTACTO_PRODUCTOR(
+    tlf NUMBER PRIMARY KEY,
+    cargo VARCHAR2(20),
+    nombre_contacto VARCHAR2(50),
+    fax NUMBER,
+    nombre_productor VARCHAR2(50),
+    nombre_solicitante VARCHAR2(50),
+    FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
+    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
+    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
+    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
+);
 
 --------------------
 -- MICROORGANISMO --
@@ -175,42 +188,6 @@ CREATE TABLE MICROORGANISMO (
 CREATE TABLE PRODUCTOR (
     nombre_productor VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
-);
-
---------------
--- CONTACTO --
---------------
-CREATE TABLE CONTACTO (
-    tlf NUMBER PRIMARY KEY,
-    cargo VARCHAR2(20),
-    tipo VARCHAR2(20),
-    nombre_contacto VARCHAR2(50),
-    fax NUMBER,
-    nombre_productor VARCHAR2(50),
-    nombre_solicitante VARCHAR2(50),
-    FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
-    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
-    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
-    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
-);
-
-
-
--- Crear la tabla UNIFICADA_CONTACTO
-CREATE TABLE UNIFICADA_CONTACTO (
-    tlf NUMBER PRIMARY KEY,
-    cargo VARCHAR2(20),
-    tipo VARCHAR2(20),
-    nombre_contacto VARCHAR2(50),
-    fax NUMBER,
-    nombre_fabricante VARCHAR2(50),
-    nombre_productor VARCHAR2(50) NULL, -- Permitir valores nulos
-    nombre_solicitante VARCHAR2(50) NULL, -- Permitir valores nulos
-    FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante),
-    FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
-    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
-    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
-    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
 
 -----------------
