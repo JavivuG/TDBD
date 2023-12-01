@@ -8,23 +8,6 @@ CREATE TABLE SOLICITANTE (
     nombre_solicitante VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
-------------------------
--- CONTACTO --
-------------------------
-CREATE TABLE CONTACTO (
-    tlf NUMBER PRIMARY KEY,
-    cargo VARCHAR2(20),
-    nombre_contacto VARCHAR2(50),
-    fax NUMBER,
-    nombre_solicitante VARCHAR2(50),
-    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
-    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
-    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
-);
-
---------------------------------------------------------------------------|
----------------------------PARTE_SUSTANCIA_ACTIVA-------------------------|
---------------------------------------------------------------------------|
 ----------------
 -- FABRICANTE --
 ----------------
@@ -32,18 +15,24 @@ CREATE TABLE FABRICANTE (
     nombre_fabricante VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
+
+--------------------------------------------------------------------------|
+---------------------------PARTE_SUSTANCIA_ACTIVA-------------------------|
+--------------------------------------------------------------------------|
 ------------------------
 -- UNIFICADA_CONTACTO --
 ------------------------
 CREATE TABLE CONTACTO_FABRICANTE (
     tlf NUMBER PRIMARY KEY,
-    tipo VARCHAR2(20),
+    cargo VARCHAR2(20),
     nombre_contacto VARCHAR2(50),
     fax NUMBER,
     nombre_fabricante VARCHAR2(50),
+    nombre_solicitante VARCHAR2(50),
     FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante),
-    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
-    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
+    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
+    CONSTRAINT check_digitos_tlf0 CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
+    CONSTRAINT check_digitos_fax0 CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
 
 ----------------
@@ -115,20 +104,20 @@ CREATE TABLE SUSTANCIA_ACTIVA (
     informacion_2_9 VARCHAR2(100),
     informacion_2_10 VARCHAR2(100),
     CONSTRAINT check_cod_desarrollo CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7),
-    CONSTRAINT check_fecha_registro CHECK (fecha_registro >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
+    CONSTRAINT check_fecha_registro0 CHECK (fecha_registro >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
 );
 
---------------
--- SOLICITA --
---------------
-CREATE TABLE SOLICITA (
+--------------------------
+-- SOLICITA_SUST_ACTIVA --
+--------------------------
+CREATE TABLE SOLICITA_SUST_ACTIVA (
     nombre_solicitante VARCHAR2(50),
     cod_desarrollo NUMBER,
     fecha DATE,
     PRIMARY KEY (nombre_solicitante, cod_desarrollo),
     FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
     FOREIGN KEY (cod_desarrollo) REFERENCES SUSTANCIA_ACTIVA(cod_desarrollo),
-    CONSTRAINT check_fecha_registro CHECK (fecha_registro >= TO_DATE('2010-01-01', 'YYYY-MM-DD')),
+    CONSTRAINT check_fecha_registro1 CHECK (fecha >= TO_DATE('2010-01-01', 'YYYY-MM-DD')),
     CONSTRAINT check_cod_desarrollo1 CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7)
 );
 
@@ -173,13 +162,15 @@ CREATE TABLE PRODUCTOR (
 --------------------
 CREATE TABLE CONTACTO_PRODUCTOR(
     tlf NUMBER PRIMARY KEY,
-    tipo VARCHAR2(20),
+    cargo VARCHAR2(20),
     nombre_contacto VARCHAR2(50),
     fax NUMBER,
     nombre_productor VARCHAR2(50),
+    nombre_solicitante VARCHAR2(50),
     FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
-    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
-    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
+    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
+    CONSTRAINT check_digitos_tlf1 CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
+    CONSTRAINT check_digitos_fax1 CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
 
 --------------------
@@ -209,10 +200,10 @@ CREATE TABLE INSTALACION (
     FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor)
 );
 
---------------
--- SOLICITA --
---------------
-CREATE TABLE SOLICITA (
+-----------------------------
+-- SOLICITA_MICROORGANISMO --
+-----------------------------
+CREATE TABLE SOLICITA_MICROORGANISMO (
     nombre_solicitante VARCHAR2(50),
     numero_entrada NUMBER,
     fecha DATE,
@@ -220,7 +211,7 @@ CREATE TABLE SOLICITA (
     FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
     FOREIGN KEY (numero_entrada) REFERENCES MICROORGANISMO(numero_entrada),
     CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5),
-    CONSTRAINT check_fecha_registro CHECK (fecha >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
+    CONSTRAINT check_fecha_registro2 CHECK (fecha >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
 );
 
 -------------
