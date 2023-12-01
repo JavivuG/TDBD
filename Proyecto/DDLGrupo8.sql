@@ -51,8 +51,8 @@ CREATE TABLE CONTACTO_FABRICANTE (
     fax NUMBER,
     nombre_fabricante VARCHAR2(50),
     FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante),
-    CONSTRAINT check_digitos_tlf0 CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
-    CONSTRAINT check_digitos_fax0 CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
+    CONSTRAINT check_digitos_tlf1 CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
+    CONSTRAINT check_digitos_fax1 CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
 
 ----------------
@@ -195,8 +195,8 @@ CREATE TABLE CONTACTO_PRODUCTOR(
     fax NUMBER,
     nombre_productor VARCHAR2(50),
     FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
-    CONSTRAINT check_digitos_tlf1 CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
-    CONSTRAINT check_digitos_fax1 CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
+    CONSTRAINT check_digitos_tlf2 CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
+    CONSTRAINT check_digitos_fax2 CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
 
 --------------------
