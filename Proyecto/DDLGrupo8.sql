@@ -4,6 +4,7 @@
 -----------------
 -- SOLICITANTE --
 -----------------
+DROP TABLE SOLICITANTE CASCADE CONSTRAINTS;
 CREATE TABLE SOLICITANTE (
     nombre_solicitante VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
@@ -11,6 +12,7 @@ CREATE TABLE SOLICITANTE (
 ----------------
 -- FABRICANTE --
 ----------------
+DROP TABLE FABRICANTE CASCADE CONSTRAINTS;
 CREATE TABLE FABRICANTE (
     nombre_fabricante VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
@@ -22,6 +24,7 @@ CREATE TABLE FABRICANTE (
 ------------------------
 -- UNIFICADA_CONTACTO --
 ------------------------
+DROP TABLE CONTACTO_FABRICANTE CASCADE CONSTRAINTS;
 CREATE TABLE CONTACTO_FABRICANTE (
     tlf NUMBER PRIMARY KEY,
     cargo VARCHAR2(20),
@@ -38,6 +41,7 @@ CREATE TABLE CONTACTO_FABRICANTE (
 ----------------
 -- COMPONENTE --
 ----------------
+DROP TABLE COMPONENTE CASCADE CONSTRAINTS;
 CREATE TABLE COMPONENTE (
     nombre_comun VARCHAR2(50) PRIMARY KEY,
     tipo VARCHAR2(50),
@@ -53,6 +57,7 @@ CREATE TABLE COMPONENTE (
 -------------
 -- FABRICA --
 -------------
+DROP TABLE FABRICA CASCADE CONSTRAINTS;
 CREATE TABLE FABRICA (
     nombre_fabrica VARCHAR(50) PRIMARY KEY,
     direccion VARCHAR2(100),
@@ -64,6 +69,7 @@ CREATE TABLE FABRICA (
 ----------------------
 -- SUSTANCIA_ACTIVA --
 ----------------------
+DROP TABLE SUSTANCIA_ACTIVA CASCADE CONSTRAINTS;
 CREATE TABLE SUSTANCIA_ACTIVA (
     cod_desarrollo NUMBER PRIMARY KEY,
     nombre_comun VARCHAR2(50),
@@ -110,6 +116,7 @@ CREATE TABLE SUSTANCIA_ACTIVA (
 --------------------------
 -- SOLICITA_SUST_ACTIVA --
 --------------------------
+DROP TABLE SOLICITA_SUST_ACTIVA CASCADE CONSTRAINTS;
 CREATE TABLE SOLICITA_SUST_ACTIVA (
     nombre_solicitante VARCHAR2(50),
     cod_desarrollo NUMBER,
@@ -124,6 +131,7 @@ CREATE TABLE SOLICITA_SUST_ACTIVA (
 -------------
 -- FORMADO --
 -------------
+DROP TABLE FORMADO CASCADE CONSTRAINTS;
 CREATE TABLE FORMADO (
     cod_desarrollo NUMBER,
     nombre_comun_componente VARCHAR2(50),
@@ -136,6 +144,7 @@ CREATE TABLE FORMADO (
 ----------------
 -- FABRICARSE --
 ----------------
+DROP TABLE FABRICARSE CASCADE CONSTRAINTS;
 CREATE TABLE FABRICARSE (
     cod_desarrollo NUMBER,
     nombre_fabricante VARCHAR2(50),
@@ -152,14 +161,16 @@ CREATE TABLE FABRICARSE (
 ---------------
 -- PRODUCTOR --
 ---------------
+DROP TABLE PRODUCTOR CASCADE CONSTRAINTS;
 CREATE TABLE PRODUCTOR (
     nombre_productor VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
 
---------------------
+------------------------
 -- CONTACTO_PRODUCTOR --
---------------------
+------------------------
+DROP TABLE CONTACTO_PRODUCTOR CASCADE CONSTRAINTS;
 CREATE TABLE CONTACTO_PRODUCTOR(
     tlf NUMBER PRIMARY KEY,
     cargo VARCHAR2(20),
@@ -176,8 +187,9 @@ CREATE TABLE CONTACTO_PRODUCTOR(
 --------------------
 -- MICROORGANISMO --
 --------------------
+DROP TABLE MICROORGANISMO CASCADE CONSTRAINTS;
 CREATE TABLE MICROORGANISMO (
-    numero_entrada NUMBER PRIMARY KEY,
+    numero_entrada VARCHAR2(8) PRIMARY KEY,
     nombre_cientifico VARCHAR2(100),
     nombres VARCHAR2(100),
     descripcion_especie VARCHAR2(200),
@@ -186,13 +198,14 @@ CREATE TABLE MICROORGANISMO (
     metodos_criterios VARCHAR2(200),
     nombre VARCHAR2(50),
     codigos VARCHAR2(50),
-    relaciones_patogenos VARCHAR2(200)
-    CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5)
+    relaciones_patogenos VARCHAR2(200),
+    CONSTRAINT numero_entrada0 CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5)
 );
 
 -----------------
 -- INSTALACION --
 -----------------
+DROP TABLE INSTALACION CASCADE CONSTRAINTS;
 CREATE TABLE INSTALACION (
     nombre_instalacion VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100),
@@ -203,25 +216,27 @@ CREATE TABLE INSTALACION (
 -----------------------------
 -- SOLICITA_MICROORGANISMO --
 -----------------------------
+DROP TABLE SOLICITA_MICROORGANISMO CASCADE CONSTRAINTS;
 CREATE TABLE SOLICITA_MICROORGANISMO (
     nombre_solicitante VARCHAR2(50),
-    numero_entrada NUMBER,
+    numero_entrada VARCHAR2(8),
     fecha DATE,
     PRIMARY KEY (nombre_solicitante, numero_entrada),
     FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
     FOREIGN KEY (numero_entrada) REFERENCES MICROORGANISMO(numero_entrada),
-    CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5),
+    CONSTRAINT numero_entrada1 CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5),
     CONSTRAINT check_fecha_registro2 CHECK (fecha >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
 );
 
 -------------
 -- PRODUCE --
 -------------
+DROP TABLE PRODUCE CASCADE CONSTRAINTS;
 CREATE TABLE PRODUCE (
-    numero_entrada NUMBER,
+    numero_entrada VARCHAR2(8),
     nombre_productor VARCHAR2(50),
     PRIMARY KEY (numero_entrada, nombre_productor),
     FOREIGN KEY (numero_entrada) REFERENCES MICROORGANISMO(numero_entrada),
     FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
-    CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5)
+    CONSTRAINT numero_entrada2 CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5)
 );
