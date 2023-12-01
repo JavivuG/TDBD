@@ -118,7 +118,7 @@ CREATE TABLE SOLICITA (
     FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
     FOREIGN KEY (cod_desarrollo) REFERENCES SUSTANCIA_ACTIVA(cod_desarrollo),
     CONSTRAINT check_fecha_registro CHECK (fecha_registro >= TO_DATE('2010-01-01', 'YYYY-MM-DD')),
-    CONSTRAINT check_cod_desarrollo CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7)
+    CONSTRAINT check_cod_desarrollo1 CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7)
 );
 
 -------------
@@ -130,7 +130,7 @@ CREATE TABLE FORMADO (
     PRIMARY KEY (cod_desarrollo, nombre_comun_componente),
     FOREIGN KEY (cod_desarrollo) REFERENCES SUSTANCIA_ACTIVA(cod_desarrollo),
     FOREIGN KEY (nombre_comun_componente) REFERENCES COMPONENTE(nombre_comun),
-    CONSTRAINT check_cod_desarrollo CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7)
+    CONSTRAINT check_cod_desarrollo2 CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7)
 );
 
 ----------------
@@ -139,10 +139,10 @@ CREATE TABLE FORMADO (
 CREATE TABLE FABRICARSE (
     cod_desarrollo NUMBER,
     nombre_fabricante VARCHAR2(50),
-    PRIMARY KEY (cod_desarrollo, nombre_comun_componente),
+    PRIMARY KEY (cod_desarrollo, nombre_fabricante),
     FOREIGN KEY (cod_desarrollo) REFERENCES SUSTANCIA_ACTIVA(cod_desarrollo),
     FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante),
-    CONSTRAINT check_cod_desarrollo CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7)
+    CONSTRAINT check_cod_desarrollo3 CHECK (cod_desarrollo > 0 AND LENGTH(TO_CHAR(cod_desarrollo)) = 7)
 );
 
 
@@ -187,7 +187,7 @@ CREATE TABLE MICROORGANISMO (
     nombre VARCHAR2(50),
     codigos VARCHAR2(50),
     relaciones_patogenos VARCHAR2(200)
-    CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5),
+    CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5)
 );
 
 -----------------
@@ -211,7 +211,7 @@ CREATE TABLE SOLICITA (
     FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
     FOREIGN KEY (numero_entrada) REFERENCES MICROORGANISMO(numero_entrada),
     CONSTRAINT numero_entrada CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5),
-    CONSTRAINT check_fecha_registro CHECK (fecha_registro >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
+    CONSTRAINT check_fecha_registro CHECK (fecha >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
 );
 
 -------------
