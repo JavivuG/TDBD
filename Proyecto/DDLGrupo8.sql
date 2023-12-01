@@ -8,6 +8,23 @@ CREATE TABLE SOLICITANTE (
     nombre_solicitante VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
+------------------------
+-- CONTACTO --
+------------------------
+CREATE TABLE CONTACTO (
+    tlf NUMBER PRIMARY KEY,
+    cargo VARCHAR2(20),
+    nombre_contacto VARCHAR2(50),
+    fax NUMBER,
+    nombre_solicitante VARCHAR2(50),
+    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
+    CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
+    CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
+);
+
+--------------------------------------------------------------------------|
+---------------------------PARTE_SUSTANCIA_ACTIVA-------------------------|
+--------------------------------------------------------------------------|
 ----------------
 -- FABRICANTE --
 ----------------
@@ -15,22 +32,16 @@ CREATE TABLE FABRICANTE (
     nombre_fabricante VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
-
---------------------------------------------------------------------------|
----------------------------PARTE_SUSTANCIA_ACTIVA-------------------------|
---------------------------------------------------------------------------|
 ------------------------
 -- UNIFICADA_CONTACTO --
 ------------------------
 CREATE TABLE CONTACTO_FABRICANTE (
     tlf NUMBER PRIMARY KEY,
-    cargo VARCHAR2(20),
+    tipo VARCHAR2(20),
     nombre_contacto VARCHAR2(50),
     fax NUMBER,
     nombre_fabricante VARCHAR2(50),
-    nombre_solicitante VARCHAR2(50),
     FOREIGN KEY (nombre_fabricante) REFERENCES FABRICANTE(nombre_fabricante),
-    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
     CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
     CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
@@ -162,13 +173,11 @@ CREATE TABLE PRODUCTOR (
 --------------------
 CREATE TABLE CONTACTO_PRODUCTOR(
     tlf NUMBER PRIMARY KEY,
-    cargo VARCHAR2(20),
+    tipo VARCHAR2(20),
     nombre_contacto VARCHAR2(50),
     fax NUMBER,
     nombre_productor VARCHAR2(50),
-    nombre_solicitante VARCHAR2(50),
     FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
-    FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
     CONSTRAINT check_digitos_tlf CHECK (tlf > 0 AND LENGTH(TO_CHAR(tlf)) = 9),
     CONSTRAINT check_digitos_fax CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
