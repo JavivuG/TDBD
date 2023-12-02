@@ -100,15 +100,15 @@ VALUES (364890172, 'Central', 'Sergio Díaz', 5321974682, 'Empresa J');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
 VALUES (123456789, 'Gerente', 'Juan Perez', 9876543210, 'Maria Lopez');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
-VALUES (234567890, 'Director', 'Ana Garcia', 8765432109, 'Antonio Garcia');
+VALUES (726491538, 'Director', 'Ana Garcia', 8765432109, 'Antonio Garcia');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
-VALUES (345678901, 'Jefe de Ventas', 'Marta Perez', 7654321098, 'Isabel Martinez');
+VALUES (583207419, 'Jefe de Ventas', 'Marta Perez', 7654321098, 'Isabel Martinez');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
-VALUES (456789012, 'Coordinador', 'David Sanchez', 6543210987, 'Francisco Rodriguez');
+VALUES (904815632, 'Coordinador', 'David Sanchez', 6543210987, 'Francisco Rodriguez');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
-VALUES (567890123, 'Supervisor', 'Laura Martin', 5432109876, 'Ana Garcia');
+VALUES (372689145, 'Supervisor', 'Laura Martin', 5432109876, 'Ana Garcia');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
-VALUES (678901234, 'Analista', 'Manuel Sanchez', 4321098765, 'Manuel Sanchez');
+VALUES (619234807, 'Analista', 'Manuel Sanchez', 4321098765, 'Manuel Sanchez');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
 VALUES (789012345, 'Asistente', 'Carmen Ruiz', 3210987654, 'Carmen Ruiz');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
@@ -116,7 +116,7 @@ VALUES (890123456, 'Representante', 'Javier Fernandez', 2109876543, 'Javier Fern
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
 VALUES (901234567, 'Especialista', 'Raquel Lopez', 1098765432, 'Raquel Lopez');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
-VALUES (123456789, 'Coordinador', 'Pedro Garcia', 9876543210, 'Pedro Garcia');
+VALUES (485372916, 'Coordinador', 'Pedro Garcia', 9876543210, 'Pedro Garcia');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
 VALUES (234567890, 'Gerente', 'Elena Garcia', 8765432109, 'Marta Perez');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 

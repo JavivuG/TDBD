@@ -119,7 +119,7 @@ CREATE TABLE SUSTANCIA_ACTIVA (
     solubilidad_agua VARCHAR2(50),
     solubilidad_organicos VARCHAR2(50),
     coeficiente_particion VARCHAR2(50),
-    inflamabilidad VARCHAR2(20),
+    inflamabilidad VARCHAR2(50),
     punto_inflamacion NUMBER,
     propiedades_explosivas VARCHAR2(100),
     tension_superficial VARCHAR2(20),
