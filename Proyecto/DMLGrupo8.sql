@@ -171,8 +171,7 @@ ambito_utilizacion, modo_accion, metodos_precauciones, procedimientos_destruccio
 evaluacion_ambiental, estudios_ecotoxicologicos, punto_fusion, punto_ebullicion, densidad_relativa, volatilidad, presion_vapor, aspecto, espectros,
 extincion_molecular, solubilidad_agua, solubilidad_organicos, coeficiente_particion, inflamabilidad, punto_inflamacion, propiedades_explosivas,
 tension_superficial, propiedades_comburentes, informacion_2_9, informacion_2_10)
-VALUES (1000001, 'Parafina', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 'QuimicoA', '123', 'C4H6O2', 'Alta', 'Perfil A', 'Fungicida', 'Efectos A',
-'Ambito A', 'Modo A', 'Precauciones A', 'Destruccion A', 'Emergencia A', 'Info 3.4 A', 'Info 3.6 A', 'Info 3.7 A', 'Evaluacion A', 'Ecotoxicologia A',
+VALUES (1000001, 'Parafina', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 'QuimicoA', '123', 'C4H6O2', 'Alta', 'Perfil A', 'Fungicida', 'Accion por ingestion', 'Ambito A', 'Modo A', 'Precauciones A', 'Destruccion A', 'Emergencia A', 'Info 3.4 A', 'Info 3.6 A', 'Info 3.7 A', 'Evaluacion A', 'Ecotoxicologia A',
 100, 200, 1.05, 'Baja', 'Baja', 'Liquido', 'Espectros A', 'Extincion A', 'Solubilidad Agua A', 'Solubilidad Organicos A', 'Coeficiente A', 'No Inflamable',
 75, 'No Explosivas', 'Alta', 'No Comburentes', 'Info 2.9 A', 'Info 2.10 A');
 
@@ -182,7 +181,7 @@ evaluacion_ambiental, estudios_ecotoxicologicos, punto_fusion, punto_ebullicion,
 extincion_molecular, solubilidad_agua, solubilidad_organicos, coeficiente_particion, inflamabilidad, punto_inflamacion, propiedades_explosivas,
 tension_superficial, propiedades_comburentes, informacion_2_9, informacion_2_10)
 VALUES 
-(1000002, 'Glifosato', TO_DATE('2022-02-01', 'YYYY-MM-DD'), 'QuimicoB', '456', 'C6H8O3', 'Media', 'Perfil B', 'Acaricida', 'Efectos B',
+(1000002, 'Glifosato', TO_DATE('2022-02-01', 'YYYY-MM-DD'), 'QuimicoB', '456', 'C6H8O3', 'Media', 'Perfil B', 'Acaricida', 'Desecante',
 'Ambito B', 'Modo B', 'Precauciones B', 'Destruccion B', 'Emergencia B', 'Info 3.4 B', 'Info 3.6 B', 'Info 3.7 B', 'Evaluacion B', 'Ecotoxicologia B',
 150, 250, 1.20, 'Media', 'Media', 'Polvo', 'Espectros B', 'Extincion B', 'Solubilidad Agua B', 'Solubilidad Organicos B', 'Coeficiente B', 'Ligeramente Inflamable',
 80, 'No Explosivas', 'Media', 'Comburentes', 'Info 2.9 B', 'Info 2.10 B');
@@ -192,7 +191,7 @@ ambito_utilizacion, modo_accion, metodos_precauciones, procedimientos_destruccio
 evaluacion_ambiental, estudios_ecotoxicologicos, punto_fusion, punto_ebullicion, densidad_relativa, volatilidad, presion_vapor, aspecto, espectros,
 extincion_molecular, solubilidad_agua, solubilidad_organicos, coeficiente_particion, inflamabilidad, punto_inflamacion, propiedades_explosivas,
 tension_superficial, propiedades_comburentes, informacion_2_9, informacion_2_10)
-VALUES (1000003, 'Niacina', TO_DATE('2023-01-15', 'YYYY-MM-DD'), 'QuimicoC', '789', 'C8H10O4', 'Alta', 'Perfil C', 'Nematicida', 'Efectos C',
+VALUES (1000003, 'Niacina', TO_DATE('2023-01-15', 'YYYY-MM-DD'), 'QuimicoC', '789', 'C8H10O4', 'Alta', 'Perfil C', 'Herbicida', 'Accion por contacto',
 'Ambito C', 'Modo C', 'Precauciones C', 'Destruccion C', 'Emergencia C', 'Info 3.4 C', 'Info 3.6 C', 'Info 3.7 C', 'Evaluacion C', 'Ecotoxicologia C',
 120, 220, 1.15, 'Alta', 'Alta', 'Granulado', 'Espectros C', 'Extincion C', 'Solubilidad Agua C', 'Solubilidad Organicos C', 'Coeficiente C', 'No Inflamable',
 90, 'No Explosivas', 'Alta', 'No Comburentes', 'Info 2.9 C', 'Info 2.10 C');
@@ -202,7 +201,7 @@ ambito_utilizacion, modo_accion, metodos_precauciones, procedimientos_destruccio
 evaluacion_ambiental, estudios_ecotoxicologicos, punto_fusion, punto_ebullicion, densidad_relativa, volatilidad, presion_vapor, aspecto, espectros,
 extincion_molecular, solubilidad_agua, solubilidad_organicos, coeficiente_particion, inflamabilidad, punto_inflamacion, propiedades_explosivas,
 tension_superficial, propiedades_comburentes, informacion_2_9, informacion_2_10)
-VALUES (1000004, 'Ranitidina', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 'QuimicoD', '101', 'C5H12', 'Media', 'Perfil D', 'Floculante', 'Efectos D',
+VALUES (1000004, 'Ranitidina', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 'QuimicoD', '101', 'C5H12', 'Media', 'Perfil D', 'Rodenticida', 'Acción fungitóxica',
 'Ambito D', 'Modo D', 'Precauciones D', 'Destruccion D', 'Emergencia D', 'Info 3.4 D', 'Info 3.6 D', 'Info 3.7 D', 'Evaluacion D', 'Ecotoxicologia D',
 130, 240, 1.18, 'Media', 'Media', 'Líquido', 'Espectros D', 'Extincion D', 'Solubilidad Agua D', 'Solubilidad Organicos D', 'Coeficiente D', 'Ligeramente Inflamable',
 85, 'No Explosivas', 'Media', 'Comburentes', 'Info 2.9 D', 'Info 2.10 D');
@@ -292,3 +291,180 @@ VALUES (1000004, 'Empresa I');
 INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
 VALUES (1000004, 'Empresa J');
 
+
+
+-- MICROORGANISMO
+INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_precauciones, nombre, codigos, relaciones_patogenos)
+VALUES (1, 'Canis lupus', 'Lobo gris', 'Especie de mamífero carnívoro de la familia de los cánidos', 'Animalia > Chordata > Mammalia > Carnivora > Canidae > Canis', 'Peso: 30-50kg, Altura: 80-85cm', 'Evitar contacto directo, pueden ser agresivos si se sienten amenazados', 'Lobo', 'CL001', 'No es un patógeno');
+INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_precauciones, nombre, codigos, relaciones_patogenos)
+VALUES (2, 'Felis catus', 'Gato', 'Especie de mamífero carnívoro de la familia Felidae', 'Animalia > Chordata > Mammalia > Carnivora > Felidae > Felis', 'Peso: 3-5kg, Altura: 20-30cm', 'Evitar contacto directo, pueden ser agresivos si se sienten amenazados', 'Gato', 'FC001', 'No es un patógeno');
+INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_precauciones, nombre, codigos, relaciones_patogenos)
+VALUES (3, 'Equus ferus caballus', 'Caballo', 'Especie de mamífero perisodáctilo domesticado de la familia de los équidos', 'Animalia > Chordata > Mammalia > Perissodactyla > Equidae > Equus', 'Peso: 380-1000kg, Altura: 1,4-1,8m', 'Evitar contacto directo, pueden ser agresivos si se sienten amenazados', 'Caballo', 'EFC001', 'No es un patógeno');
+INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_precauciones, nombre, codigos, relaciones_patogenos)
+VALUES (4, 'Bos taurus', 'Vaca', 'Especie de mamífero artiodáctilo de la familia de los bóvidos', 'Animalia > Chordata > Mammalia > Artiodactyla > Bovidae > Bos', 'Peso: 500-800kg, Altura: 1,4-1,8m', 'Evitar contacto directo, pueden ser agresivos si se sienten amenazados', 'Vaca', 'BT001', 'No es un patógeno');    
+
+
+-- PRODUCTOR
+INSERT INTO PRODUCTOR (nombre_productor, direccion)
+VALUES ('Productor A', 'Calle del Abedul, 29, Arroyomolinos');
+INSERT INTO PRODUCTOR (nombre_productor, direccion)
+VALUES ('Productor B', 'Avenida de las Acacias, 15, Alcobendas');
+INSERT INTO PRODUCTOR (nombre_productor, direccion)
+VALUES ('Productor C', 'Calle del Alamo, 23, Alcorcon');
+INSERT INTO PRODUCTOR (nombre_productor, direccion)
+VALUES ('Productor D', 'Paseo de la Rosa, 23, Getafe');
+INSERT INTO PRODUCTOR (nombre_productor, direccion)
+VALUES ('Productor E', 'Carrera del Sol, 10, Majadahonda');
+INSERT INTO PRODUCTOR (nombre_productor, direccion)
+VALUES ('Productor F', 'Paseo de la Luna, 30, Boadilla del Monte');
+INSERT INTO PRODUCTOR (nombre_productor, direccion)
+VALUES ('Productor G', 'Avenida de la Playa, 15, Barcelona');
+INSERT INTO PRODUCTOR (nombre_productor, direccion)
+VALUES ('Productor H', 'Calle del Bosque, 29, San Sebastián');
+INSERT INTO PRODUCTOR (nombre_productor, direccion)
+VALUES ('Productor I', 'Calle Carrera de la Sierra, 15, Granada');
+
+
+-- CONTACTO_PRODUCTOR
+INSERT INTO CONTACTO_PRODUCTOR (tlf, tipo, nombre_contacto, fax, nombre_productor)
+VALUES (873249561, 'Central', 'Santiago García', 5018372946, 'Productor A');
+INSERT INTO CONTACTO_PRODUCTOR (tlf, tipo, nombre_contacto, fax, nombre_productor)
+VALUES (605817392, 'Oficina', 'Isabella López', 8246953717, 'Productor B');
+INSERT INTO CONTACTO_PRODUCTOR (tlf, tipo, nombre_contacto, fax, nombre_productor)
+VALUES (428196753, 'Central', 'Lucas Torres', 3691475820, 'Productor C');
+INSERT INTO CONTACTO_PRODUCTOR (tlf, tipo, nombre_contacto, fax, nombre_productor)
+VALUES (362598147, 'Departamento', 'Martina Vargas', 7258309146, 'Productor D');
+INSERT INTO CONTACTO_PRODUCTOR (tlf, tipo, nombre_contacto, fax, nombre_productor)
+VALUES (836124975, 'Central', 'Emilia Jiménez', 1849275036, 'Productor E');
+INSERT INTO CONTACTO_PRODUCTOR (tlf, tipo, nombre_contacto, fax, nombre_productor)
+VALUES (795146238, 'Central', 'Leonardo Pérez', 6325901487, 'Productor F');
+INSERT INTO CONTACTO_PRODUCTOR (tlf, tipo, nombre_contacto, fax, nombre_productor)
+VALUES (341982756, 'Oficina', 'Marcos Ramírez', 9174682305, 'Productor G');
+INSERT INTO CONTACTO_PRODUCTOR (tlf, tipo, nombre_contacto, fax, nombre_productor)
+VALUES (134859672, 'Central', 'Tomás Silva', 4032817569, 'Productor H');
+INSERT INTO CONTACTO_PRODUCTOR (tlf, tipo, nombre_contacto, fax, nombre_productor)  
+VALUES (967315284, 'Oficina', 'Catalina Herrera', 7518249603, 'Productor I');
+
+
+
+-- Instalaciones de los productores
+-- Una instalacion solo puede pertenecer a un productor
+-- Instalaciones de productor A
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion A', 'Camiño Real, 63, Barrika', 'Productor A');
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion B', 'Fuente del Gallo, 15, Ponteceso', 'Productor B');
+
+-- Instalaciones de productor B
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion C', 'Avda. de Andalucía, 23, Antequera', 'Productor B');
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion D', 'Visitación de la Encina, 14, Navamorales', 'Productor B');
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion E', 'Carrera del Sol, 10, Majadahonda', 'Productor B');
+
+-- Instalaciones de productor C
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion F', 'Paseo de la Luna, 30, Boadilla del Monte', 'Productor C');
+
+-- Instalaciones de productor D
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion G', 'Avenida de la Playa, 15, Barcelona', 'Productor D');
+
+-- Instalaciones de productor E
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion H', 'Calle del Bosque, 29, San Sebastián', 'Productor E');
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion I', 'Calle Carrera de la Sierra, 15, Granada', 'Productor E');
+
+-- Instalaciones de productor F
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion J', 'Calle del Abedul, 29, Arroyomolinos', 'Productor F');
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion K', 'Avenida de las Acacias, 15, Alcobendas', 'Productor F');
+
+-- Instalaciones de productor G
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion L', 'Calle del Alamo, 23, Alcorcon', 'Productor G');
+
+-- Instalaciones de productor H
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion M', 'Paseo de la Rosa, 23, Getafe', 'Productor H');
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion N', 'Carrera del Sol, 10, Majadahonda', 'Productor H');
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion O', 'Paseo de la Luna, 30, Boadilla del Monte', 'Productor H');
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion P', 'Avenida de la Playa, 15, Barcelona', 'Productor H');
+
+-- Instalaciones de productor I
+INSERT INTO INSTALACION (nombre_instalacion, direccion, nombre_productor)
+VALUES ('Instalacion Q', 'Calle del Bosque, 29, San Sebastián', 'Productor I');
+
+
+
+-- Relacion entre microorganismos y sus productores
+-- Un microorganismo puede ser producido por varios productores
+-- Un productor puede producir varios microorganismos
+-- Productores de microorganismo 1
+INSERT INTO PRODUCE (numero_entrada, nombre_productor)
+VALUES (1, 'Productor A');
+INSERT INTO PRODUCE (numero_entrada, nombre_productor)
+VALUES (1, 'Productor B');
+INSERT INTO PRODUCE (numero_entrada, nombre_productor)
+VALUES (1, 'Productor C');
+
+-- Productores de microorganismo 2
+INSERT INTO PRODUCE (numero_entrada, nombre_productor)
+VALUES (2, 'Productor B');
+INSERT INTO PRODUCE (numero_entrada, nombre_productor)
+VALUES (2, 'Productor D');
+
+-- Productores de microorganismo 3
+INSERT INTO PRODUCE (numero_entrada, nombre_productor)
+VALUES (3, 'Productor E');
+INSERT INTO PRODUCE (numero_entrada, nombre_productor)
+VALUES (3, 'Productor F');
+INSERT INTO PRODUCE (numero_entrada, nombre_productor)
+VALUES (3, 'Productor G');
+INSERT INTO PRODUCE (numero_entrada, nombre_productor)
+VALUES (3, 'Productor H');
+
+-- Productores de microorganismo 4
+INSERT INTO PRODUCE (numero_entrada, nombre_productor)
+VALUES (4, 'Productor I');
+
+
+
+-- Relacion entre microorganismos y sus solicitantes
+-- Solicitudes para microorganismos con su respectiva fecha
+-- Solicitudes para microorganismo 1
+INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
+VALUES ('Maria Lopez', 1, TO_DATE('2023-01-04', 'YYYY-MM-DD'));
+INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
+VALUES ('Antonio Garcia', 1, TO_DATE('2018-11-29', 'YYYY-MM-DD'));
+INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
+VALUES ('Laura Martin', 1, TO_DATE('20219-03-24', 'YYYY-MM-DD'));
+
+-- Solicitudes para microorganismo 2
+INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
+VALUES ('Antonio Garcia', 2, TO_DATE('2022-02-01', 'YYYY-MM-DD'));
+INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
+VALUES ('Isabel Martinez', 2, TO_DATE('2023-01-23', 'YYYY-MM-DD'));
+
+-- Solicitudes para microorganismo 3
+-- No hay solicitudes para el microorganismo 3
+
+-- Solicitudes para microorganismo 4
+INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
+VALUES ('Francisco Rodriguez', 4, TO_DATE('2019-02-02', 'YYYY-MM-DD'));
+INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
+VALUES ('Manuel Sanchez', 4, TO_DATE('2022-04-01', 'YYYY-MM-DD'));
+INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
+VALUES ('Pedro Garcia', 4, TO_DATE('2020-07-09', 'YYYY-MM-DD'));
+INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
+VALUES ('Elena Garcia', 4, TO_DATE('2021-12-04', 'YYYY-MM-DD'));
+
+
+
+COMMIT;

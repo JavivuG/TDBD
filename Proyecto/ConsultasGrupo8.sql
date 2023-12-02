@@ -25,9 +25,26 @@ FROM sustancia_activa s
 WHERE s.funcion = 'Acaricida';
 
 -- 5. Para cada función listada en el ítem 3.1 del Reglamento, cantidad total de sustancias activas registradas durante el año 2023. 
-
+SELECT s.funcion, count(*)
+FROM sustancia_activa s
+WHERE 
+s.funcion IN ('Acaricida', 'Bactericida', 'Fungicida', 'Herbicida', 'Insecticida', 'Molusquicida', 'Nematicida', 'Regulador del crecimiento de las plantas', 'Repelente', 'Rodenticida', 'Semioquímico', 'Topicida', 'Viricida') AND EXTRACT(YEAR FROM fecha_registro) = 2023
+GROUP BY s.funcion;
 
 -- 6. Implementar la restricción que garantiza que si una sustancia tiene alguno de los efectos nocivos indicados en el ítem 3.2, también estará en la base de datos la información relativa a los métodos y protecciones recomendadas que requiere el ítem 3.6
 
 
 -- 7. Implementar la restricción que garantiza que todos los efectos nocivos que se asocian a una sustancia activa se corresponden con alguno de los recogidos en el catálogo del ítem 3.2.1.
+CREATE OR REPLACE TRIGGER check_efectos_nocivos
+BEFORE INSERT OR UPDATE OF efectos_org_nocivos ON SUSTANCIA_ACTIVA
+FOR EACH ROW
+DECLARE
+BEGIN
+    -- Verificar si el nuevo efecto nocivo está permitido
+    IF :NEW.efectos_org_nocivos 
+    NOT IN ('Accion por contacto', 'Accion por ingestion', 'Accion por inhalacion','Acción fungitóxica','Acción fungistática','Desecante','Inhibidor de la reproducción') THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Efecto nocivo no permitido.');
+    END IF;
+END;
+
+
