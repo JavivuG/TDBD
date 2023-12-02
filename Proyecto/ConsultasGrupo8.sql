@@ -1,11 +1,9 @@
 -- Consultas
 -- 1. Listado de personas de contacto de las solicitudes presentadas durante el mes de enero de 2023.
-SELECT c.nombre_contacto
-FROM contacto c
-JOIN solicita_sust_activa sol_sust ON c.nombre_solicitante = sol_sust.nombre_solicitante
-JOIN solicita_microorganismo sol_micro ON c.nombre_solicitante = sol_micro.nombre_solicitante
-WHERE (EXTRACT(MONTH FROM sol_sust.fecha) = 1 AND EXTRACT(YEAR FROM sol_sust.fecha) = 2023)
-OR (EXTRACT(MONTH FROM sol_micro.fecha) = 1 AND EXTRACT(YEAR FROM sol_micro.fecha) = 2023);
+(SELECT c.nombre_contacto FROM contacto c JOIN solicita_sust_activa sol_sust ON c.nombre_solicitante = sol_sust.nombre_solicitante
+WHERE (EXTRACT(MONTH FROM sol_sust.fecha) = 1 AND EXTRACT(YEAR FROM sol_sust.fecha) = 2023))
+UNION 
+(SELECT c.nombre_contacto from contacto c JOIN solicita_microorganismo sol_micro ON c.nombre_solicitante = sol_micro.nombre_solicitante WHERE (EXTRACT(MONTH FROM sol_micro.fecha) = 1 AND EXTRACT(YEAR FROM sol_micro.fecha) = 2023));
 
 -- 2. Cantidad total de sustancias activas registradas durante el mes de enero de 2023.
 SELECT count(*)

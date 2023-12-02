@@ -210,7 +210,7 @@ VALUES (1000004, 'Ranitidina', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 'QuimicoD', 
 -- Relacion entre sustancias activas y sus solicitantes
 -- Solicitudes para sustancias activas con su respectiva fecha
 INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
-VALUES ('Maria Lopez', 1000001, TO_DATE('2023-01-04', 'YYYY-MM-DD'));
+VALUES ('David Sanchez', 1000001, TO_DATE('2023-01-04', 'YYYY-MM-DD'));
 INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
 VALUES ('Antonio Garcia', 1000002, TO_DATE('2022-02-01', 'YYYY-MM-DD'));
 INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
@@ -294,13 +294,13 @@ VALUES (1000004, 'Empresa J');
 
 
 -- MICROORGANISMO
-INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_precauciones, nombre, codigos, relaciones_patogenos)
+INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_criterios, nombre, codigos, relaciones_patogenos)
 VALUES (1, 'Canis lupus', 'Lobo gris', 'Especie de mamífero carnívoro de la familia de los cánidos', 'Animalia > Chordata > Mammalia > Carnivora > Canidae > Canis', 'Peso: 30-50kg, Altura: 80-85cm', 'Evitar contacto directo, pueden ser agresivos si se sienten amenazados', 'Lobo', 'CL001', 'No es un patógeno');
-INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_precauciones, nombre, codigos, relaciones_patogenos)
+INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_criterios, nombre, codigos, relaciones_patogenos)
 VALUES (2, 'Felis catus', 'Gato', 'Especie de mamífero carnívoro de la familia Felidae', 'Animalia > Chordata > Mammalia > Carnivora > Felidae > Felis', 'Peso: 3-5kg, Altura: 20-30cm', 'Evitar contacto directo, pueden ser agresivos si se sienten amenazados', 'Gato', 'FC001', 'No es un patógeno');
-INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_precauciones, nombre, codigos, relaciones_patogenos)
+INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_criterios, nombre, codigos, relaciones_patogenos)
 VALUES (3, 'Equus ferus caballus', 'Caballo', 'Especie de mamífero perisodáctilo domesticado de la familia de los équidos', 'Animalia > Chordata > Mammalia > Perissodactyla > Equidae > Equus', 'Peso: 380-1000kg, Altura: 1,4-1,8m', 'Evitar contacto directo, pueden ser agresivos si se sienten amenazados', 'Caballo', 'EFC001', 'No es un patógeno');
-INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_precauciones, nombre, codigos, relaciones_patogenos)
+INSERT INTO MICROORGANISMO (numero_entrada, nombre_cientifico, nombres, descripcion_especie, taxonomia, especificaciones, metodos_criterios, nombre, codigos, relaciones_patogenos)
 VALUES (4, 'Bos taurus', 'Vaca', 'Especie de mamífero artiodáctilo de la familia de los bóvidos', 'Animalia > Chordata > Mammalia > Artiodactyla > Bovidae > Bos', 'Peso: 500-800kg, Altura: 1,4-1,8m', 'Evitar contacto directo, pueden ser agresivos si se sienten amenazados', 'Vaca', 'BT001', 'No es un patógeno');    
 
 
@@ -444,13 +444,13 @@ VALUES ('Maria Lopez', 1, TO_DATE('2023-01-04', 'YYYY-MM-DD'));
 INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
 VALUES ('Antonio Garcia', 1, TO_DATE('2018-11-29', 'YYYY-MM-DD'));
 INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
-VALUES ('Laura Martin', 1, TO_DATE('20219-03-24', 'YYYY-MM-DD'));
+VALUES ('Laura Martin', 1, TO_DATE('2019-03-24', 'YYYY-MM-DD'));
 
 -- Solicitudes para microorganismo 2
 INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
 VALUES ('Antonio Garcia', 2, TO_DATE('2022-02-01', 'YYYY-MM-DD'));
 INSERT INTO SOLICITA_MICROORGANISMO (nombre_solicitante, numero_entrada, fecha)
-VALUES ('Isabel Martinez', 2, TO_DATE('2023-01-23', 'YYYY-MM-DD'));
+VALUES ('Ana Garcia', 2, TO_DATE('2023-01-23', 'YYYY-MM-DD'));
 
 -- Solicitudes para microorganismo 3
 -- No hay solicitudes para el microorganismo 3

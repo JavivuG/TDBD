@@ -214,7 +214,7 @@ CREATE TABLE MICROORGANISMO (
     nombre VARCHAR2(50),
     codigos VARCHAR2(50),
     relaciones_patogenos VARCHAR2(200),
-    CONSTRAINT numero_entrada0 CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5)
+    CONSTRAINT numero_entrada0 CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) <= 5)
 );
 
 -----------------
@@ -239,7 +239,7 @@ CREATE TABLE SOLICITA_MICROORGANISMO (
     PRIMARY KEY (nombre_solicitante, numero_entrada),
     FOREIGN KEY (nombre_solicitante) REFERENCES SOLICITANTE(nombre_solicitante),
     FOREIGN KEY (numero_entrada) REFERENCES MICROORGANISMO(numero_entrada),
-    CONSTRAINT numero_entrada1 CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5),
+    CONSTRAINT numero_entrada1 CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) <= 5),
     CONSTRAINT check_fecha_registro2 CHECK (fecha >= TO_DATE('2010-01-01', 'YYYY-MM-DD'))
 );
 
@@ -253,5 +253,5 @@ CREATE TABLE PRODUCE (
     PRIMARY KEY (numero_entrada, nombre_productor),
     FOREIGN KEY (numero_entrada) REFERENCES MICROORGANISMO(numero_entrada),
     FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
-    CONSTRAINT numero_entrada2 CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) = 5)
+    CONSTRAINT numero_entrada2 CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) <= 5)
 );
