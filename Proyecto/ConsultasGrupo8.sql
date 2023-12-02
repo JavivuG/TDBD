@@ -14,14 +14,16 @@ WHERE EXTRACT(MONTH FROM fecha_registro) = 1 AND EXTRACT(YEAR FROM fecha_registr
 
 -- 3. Datos de los componentes presentes en la sustancia activa “Parafina”.
 SELECT c.peso_molecular, c.tipo, c.funcion, c.denominacion_quimica
-FROM componente c
-JOIN sustancia_activa s ON c.nombre_comun = s.nombre_comun
+FROM formado f
+JOIN sustancia_activa s ON f.cod_desarrollo = s.cod_desarrollo
+JOIN componente c on f.nombre_comun_componente = c.nombre_comun
 WHERE s.nombre_comun = 'Parafina';
 
 -- 4. Número de sustancias activas que cumplen con la función de acaricida
 SELECT count(*)
 FROM sustancia_activa s
-WHERE s.funcion = 'acaricida';
+WHERE s.funcion = 'Acaricida';
+
 -- 5. Para cada función listada en el ítem 3.1 del Reglamento, cantidad total de sustancias activas registradas durante el año 2023. 
 
 

@@ -171,7 +171,7 @@ ambito_utilizacion, modo_accion, metodos_precauciones, procedimientos_destruccio
 evaluacion_ambiental, estudios_ecotoxicologicos, punto_fusion, punto_ebullicion, densidad_relativa, volatilidad, presion_vapor, aspecto, espectros,
 extincion_molecular, solubilidad_agua, solubilidad_organicos, coeficiente_particion, inflamabilidad, punto_inflamacion, propiedades_explosivas,
 tension_superficial, propiedades_comburentes, informacion_2_9, informacion_2_10)
-VALUES (1000001, 'Sustancia A', TO_DATE('2022-01-01', 'YYYY-MM-DD'), 'QuimicoA', '123', 'C4H6O2', 'Alta', 'Perfil A', 'Funcion A', 'Efectos A',
+VALUES (1000001, 'Parafina', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 'QuimicoA', '123', 'C4H6O2', 'Alta', 'Perfil A', 'Fungicida', 'Efectos A',
 'Ambito A', 'Modo A', 'Precauciones A', 'Destruccion A', 'Emergencia A', 'Info 3.4 A', 'Info 3.6 A', 'Info 3.7 A', 'Evaluacion A', 'Ecotoxicologia A',
 100, 200, 1.05, 'Baja', 'Baja', 'Liquido', 'Espectros A', 'Extincion A', 'Solubilidad Agua A', 'Solubilidad Organicos A', 'Coeficiente A', 'No Inflamable',
 75, 'No Explosivas', 'Alta', 'No Comburentes', 'Info 2.9 A', 'Info 2.10 A');
@@ -182,7 +182,7 @@ evaluacion_ambiental, estudios_ecotoxicologicos, punto_fusion, punto_ebullicion,
 extincion_molecular, solubilidad_agua, solubilidad_organicos, coeficiente_particion, inflamabilidad, punto_inflamacion, propiedades_explosivas,
 tension_superficial, propiedades_comburentes, informacion_2_9, informacion_2_10)
 VALUES 
-(1000002, 'Sustancia B', TO_DATE('2022-02-01', 'YYYY-MM-DD'), 'QuimicoB', '456', 'C6H8O3', 'Media', 'Perfil B', 'Funcion B', 'Efectos B',
+(1000002, 'Glifosato', TO_DATE('2022-02-01', 'YYYY-MM-DD'), 'QuimicoB', '456', 'C6H8O3', 'Media', 'Perfil B', 'Acaricida', 'Efectos B',
 'Ambito B', 'Modo B', 'Precauciones B', 'Destruccion B', 'Emergencia B', 'Info 3.4 B', 'Info 3.6 B', 'Info 3.7 B', 'Evaluacion B', 'Ecotoxicologia B',
 150, 250, 1.20, 'Media', 'Media', 'Polvo', 'Espectros B', 'Extincion B', 'Solubilidad Agua B', 'Solubilidad Organicos B', 'Coeficiente B', 'Ligeramente Inflamable',
 80, 'No Explosivas', 'Media', 'Comburentes', 'Info 2.9 B', 'Info 2.10 B');
@@ -192,7 +192,7 @@ ambito_utilizacion, modo_accion, metodos_precauciones, procedimientos_destruccio
 evaluacion_ambiental, estudios_ecotoxicologicos, punto_fusion, punto_ebullicion, densidad_relativa, volatilidad, presion_vapor, aspecto, espectros,
 extincion_molecular, solubilidad_agua, solubilidad_organicos, coeficiente_particion, inflamabilidad, punto_inflamacion, propiedades_explosivas,
 tension_superficial, propiedades_comburentes, informacion_2_9, informacion_2_10)
-VALUES (1000003, 'Sustancia C', TO_DATE('2022-03-01', 'YYYY-MM-DD'), 'QuimicoC', '789', 'C8H10O4', 'Alta', 'Perfil C', 'Funcion C', 'Efectos C',
+VALUES (1000003, 'Niacina', TO_DATE('2023-01-15', 'YYYY-MM-DD'), 'QuimicoC', '789', 'C8H10O4', 'Alta', 'Perfil C', 'Nematicida', 'Efectos C',
 'Ambito C', 'Modo C', 'Precauciones C', 'Destruccion C', 'Emergencia C', 'Info 3.4 C', 'Info 3.6 C', 'Info 3.7 C', 'Evaluacion C', 'Ecotoxicologia C',
 120, 220, 1.15, 'Alta', 'Alta', 'Granulado', 'Espectros C', 'Extincion C', 'Solubilidad Agua C', 'Solubilidad Organicos C', 'Coeficiente C', 'No Inflamable',
 90, 'No Explosivas', 'Alta', 'No Comburentes', 'Info 2.9 C', 'Info 2.10 C');
@@ -202,7 +202,7 @@ ambito_utilizacion, modo_accion, metodos_precauciones, procedimientos_destruccio
 evaluacion_ambiental, estudios_ecotoxicologicos, punto_fusion, punto_ebullicion, densidad_relativa, volatilidad, presion_vapor, aspecto, espectros,
 extincion_molecular, solubilidad_agua, solubilidad_organicos, coeficiente_particion, inflamabilidad, punto_inflamacion, propiedades_explosivas,
 tension_superficial, propiedades_comburentes, informacion_2_9, informacion_2_10)
-VALUES (1000004, 'Sustancia D', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 'QuimicoD', '101', 'C5H12', 'Media', 'Perfil D', 'Funcion D', 'Efectos D',
+VALUES (1000004, 'Ranitidina', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 'QuimicoD', '101', 'C5H12', 'Media', 'Perfil D', 'Floculante', 'Efectos D',
 'Ambito D', 'Modo D', 'Precauciones D', 'Destruccion D', 'Emergencia D', 'Info 3.4 D', 'Info 3.6 D', 'Info 3.7 D', 'Evaluacion D', 'Ecotoxicologia D',
 130, 240, 1.18, 'Media', 'Media', 'Líquido', 'Espectros D', 'Extincion D', 'Solubilidad Agua D', 'Solubilidad Organicos D', 'Coeficiente D', 'Ligeramente Inflamable',
 85, 'No Explosivas', 'Media', 'Comburentes', 'Info 2.9 D', 'Info 2.10 D');
@@ -211,11 +211,11 @@ VALUES (1000004, 'Sustancia D', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 'QuimicoD',
 -- Relacion entre sustancias activas y sus solicitantes
 -- Solicitudes para sustancias activas con su respectiva fecha
 INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
-VALUES ('Maria Lopez', 1000001, TO_DATE('2022-01-01', 'YYYY-MM-DD'));
+VALUES ('Maria Lopez', 1000001, TO_DATE('2023-01-04', 'YYYY-MM-DD'));
 INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
 VALUES ('Antonio Garcia', 1000002, TO_DATE('2022-02-01', 'YYYY-MM-DD'));
 INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
-VALUES ('Isabel Martinez', 1000003, TO_DATE('2022-03-01', 'YYYY-MM-DD'));
+VALUES ('Isabel Martinez', 1000003, TO_DATE('2023-01-23', 'YYYY-MM-DD'));
 INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
 VALUES ('Francisco Rodriguez', 1000004, TO_DATE('2022-04-01', 'YYYY-MM-DD'));
 
