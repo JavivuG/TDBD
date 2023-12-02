@@ -51,18 +51,52 @@ INSERT INTO FABRICANTE (nombre_fabricante, direccion)
 VALUES ('Empresa I', 'Calle Creatividad, 23, Madrid');
 INSERT INTO FABRICANTE (nombre_fabricante, direccion) 
 VALUES ('Empresa J', 'Avenida Industrial, 45, Valencia');
-INSERT INTO FABRICANTE (nombre_fabricante, direccion) 
-VALUES ('Empresa K', 'Plaza del Progreso, 67, Sevilla');
-INSERT INTO FABRICANTE (nombre_fabricante, direccion) 
-VALUES ('Empresa L', 'Calle Innovacion, 89, Barcelona');
-INSERT INTO FABRICANTE (nombre_fabricante, direccion) 
-VALUES ('Empresa M', 'Paseo del Desarrollo, 12, Madrid');
-INSERT INTO FABRICANTE (nombre_fabricante, direccion) 
-VALUES ('Empresa N', 'Avenida del Avance, 34, Valencia');
-INSERT INTO FABRICANTE (nombre_fabricante, direccion) 
-VALUES ('Empresa O', 'Calle Futuro, 56, Sevilla');
 
--- CONTACTO 
+-- FABRICA 
+INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
+VALUES ('Fabrica A', 'Calle Industria, 123, Barcelona', 'Produccion en masa', 'Empresa A');
+INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
+VALUES ('Fabrica B', 'Avenida Tecnologia, 45, Madrid', 'Fabricacion a medida', 'Empresa B');
+INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
+VALUES ('Fabrica C', 'Plaza Innovacion, 67, Valencia', 'Produccion automatizada', 'Empresa C');
+INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
+VALUES ('Fabrica D', 'Calle Progreso, 89, Sevilla', 'Fabricacion artesanal', 'Empresa D');
+INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
+VALUES ('Fabrica E', 'Paseo del Desarrollo, 12, Zaragoza', 'Produccion en serie', 'Empresa E');
+INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
+VALUES ('Fabrica F', 'Avenida del Avance, 34, Bilbao', 'Produccion personalizada', 'Empresa F');
+INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
+VALUES ('Fabrica G', 'Calle Futuro, 56, Malaga', 'Produccion en cadena', 'Empresa G');
+INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
+VALUES ('Fabrica H', 'Avenida de la Ciencia, 78, Barcelona', 'Fabricacion a medida', 'Empresa H');
+INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
+VALUES ('Fabrica I', 'Calle Creatividad, 23, Madrid', 'Produccion automatizada', 'Empresa I');
+INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
+VALUES ('Fabrica J', 'Avenida Industrial, 45, Valencia', 'Produccion en serie', 'Empresa J');
+
+-- Contacto de fabricante
+INSERT INTO CONTACTO_FABRICANTE(tlf,tipo,nombre_contacto,fax,nombre_fabricante)
+VALUES (874209356, 'Central', 'Alejandro García', 7951086322, 'Empresa A');
+INSERT INTO CONTACTO_FABRICANTE(tlf,tipo,nombre_contacto,fax,nombre_fabricante)
+VALUES (562198743, 'Oficina', 'Marta Rodríguez', 2567431894, 'Empresa B');
+INSERT INTO CONTACTO_FABRICANTE(tlf,tipo,nombre_contacto,fax,nombre_fabricante)
+VALUES (309857614, 'Central', 'Marta Perez', 2567431895, 'Empresa C');
+INSERT INTO CONTACTO_FABRICANTE(tlf,tipo,nombre_contacto,fax,nombre_fabricante)
+VALUES (721684935, 'Departamento', 'Ana González', 6835149276, 'Empresa D');
+INSERT INTO CONTACTO_FABRICANTE(tlf,tipo,nombre_contacto,fax,nombre_fabricante)
+VALUES (435976128, 'Central', 'Daniel Martínez', 9203758641, 'Empresa E');
+INSERT INTO CONTACTO_FABRICANTE(tlf,tipo,nombre_contacto,fax,nombre_fabricante)
+VALUES (189437520, 'Central', 'María Fernández', 5748293611, 'Empresa F');
+INSERT INTO CONTACTO_FABRICANTE(tlf,tipo,nombre_contacto,fax,nombre_fabricante)
+VALUES (503216987, 'Oficina', 'Laura Jiménez', 5748293618, 'Empresa G');
+INSERT INTO CONTACTO_FABRICANTE(tlf,tipo,nombre_contacto,fax,nombre_fabricante)
+VALUES (648702513, 'Central', 'Guillermo Torres', 8072361549, 'Empresa H');
+INSERT INTO CONTACTO_FABRICANTE(tlf,tipo,nombre_contacto,fax,nombre_fabricante)
+VALUES (927315468, 'Oficina', 'Raúl Morales', 1496857301, 'Empresa I');
+INSERT INTO CONTACTO_FABRICANTE(tlf,tipo,nombre_contacto,fax,nombre_fabricante)
+VALUES (364890172, 'Central', 'Sergio Díaz', 5321974682, 'Empresa J');
+
+-- Contacto de solicitantes 
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
 VALUES (123456789, 'Gerente', 'Juan Perez', 9876543210, 'Maria Lopez');
 INSERT INTO CONTACTO (tlf, cargo, nombre_contacto, fax, nombre_solicitante) 
@@ -127,70 +161,8 @@ INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numer
 VALUES ('Componente O', 'Quimico', 'Reactivo', 'Bromuro de potasio', 'KBr', 'K+ + Br-', 119.002, 'Cristales');
 
 
--- COMPONENTE 
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente A', 'Químico', 'Reactivo', 'Hidróxido de sodio', 'NaOH', 'Na+ + OH-', 39.997, 'Sólido');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente B', 'Orgánico', 'Solvente', 'Acetona', 'C3H6O', 'CH3COCH3', 58.080, 'Líquido');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente C', 'Inorgánico', 'Catalizador', 'Platino', 'Pt', 'Pt', 195.084, 'Sólido');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente D', 'Orgánico', 'Polímero', 'Polietileno', 'C2H4', '(CH2-CH2)n', 28.054, 'Sólido');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente E', 'Inorgánico', 'Ácido', 'Ácido sulfúrico', 'H2SO4', 'H2O + SO3', 98.079, 'Líquido');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente F', 'Orgánico', 'Colorante', 'Azul de metileno', 'C16H18ClN3S', 'C16H18ClN3S', 319.851, 'Polvo');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente G', 'Inorgánico', 'Sal', 'Cloruro de sodio', 'NaCl', 'Na+ + Cl-', 58.443, 'Cristales');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente H', 'Químico', 'Reactivo', 'Ácido clorhídrico', 'HCl', 'H+ + Cl-', 36.461, 'Líquido');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente I', 'Orgánico', 'Solvente', 'Etanol', 'C2H5OH', 'C2H5OH', 46.070, 'Líquido');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente J', 'Inorgánico', 'Catalizador', 'Óxido de zinc', 'ZnO', 'ZnO', 81.379, 'Polvo');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente K', 'Orgánico', 'Polímero', 'Polipropileno', 'C3H6', '(C3H6)n', 42.081, 'Sólido');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente L', 'Inorgánico', 'Ácido', 'Ácido nítrico', 'HNO3', 'HNO3', 63.013, 'Líquido');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente M', 'Orgánico', 'Colorante', 'Rojo de alizarina', 'C14H8O4', 'C14H8O4', 240.210, 'Polvo');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente N', 'Inorgánico', 'Sal', 'Sulfato de magnesio', 'MgSO4', 'Mg2+ + SO4^2-', 120.366, 'Cristales');
-INSERT INTO COMPONENTE (nombre_comun, tipo, funcion, denominacion_quimica, numeros, formulas, peso_molecular, contenido) 
-VALUES ('Componente O', 'Químico', 'Reactivo', 'Bromuro de potasio', 'KBr', 'K+ + Br-', 119.002, 'Cristales');
 
 
--- FABRICA 
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica A', 'Calle Industria, 123, Barcelona', 'Produccion en masa', 'Empresa A');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica B', 'Avenida Tecnologia, 45, Madrid', 'Fabricacion a medida', 'Empresa B');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica C', 'Plaza Innovacion, 67, Valencia', 'Produccion automatizada', 'Empresa C');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica D', 'Calle Progreso, 89, Sevilla', 'Fabricacion artesanal', 'Empresa D');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica E', 'Paseo del Desarrollo, 12, Zaragoza', 'Produccion en serie', 'Empresa E');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica F', 'Avenida del Avance, 34, Bilbao', 'Produccion personalizada', 'Empresa F');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica G', 'Calle Futuro, 56, Malaga', 'Produccion en cadena', 'Empresa G');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica H', 'Avenida de la Ciencia, 78, Barcelona', 'Fabricacion a medida', 'Empresa H');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica I', 'Calle Creatividad, 23, Madrid', 'Produccion automatizada', 'Empresa I');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica J', 'Avenida Industrial, 45, Valencia', 'Produccion en serie', 'Empresa J');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica K', 'Plaza del Progreso, 67, Sevilla', 'Produccion personalizada', 'Empresa K');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica L', 'Calle Innovacion, 89, Barcelona', 'Produccion en cadena', 'Empresa L');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica M', 'Paseo del Desarrollo, 12, Madrid', 'Fabricacion artesanal', 'Empresa M');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica N', 'Avenida del Avance, 34, Valencia', 'Produccion en cadena', 'Empresa N');
-INSERT INTO FABRICA (nombre_fabrica, direccion, metodo_fabricacion, nombre_fabricante) 
-VALUES ('Fabrica O', 'Calle Futuro, 56, Sevilla', 'Produccion personalizada', 'Empresa O');
 
 
 -- SUSTANCIA ACTIVA 
@@ -234,3 +206,89 @@ VALUES (1000004, 'Sustancia D', TO_DATE('2022-04-01', 'YYYY-MM-DD'), 'QuimicoD',
 'Ambito D', 'Modo D', 'Precauciones D', 'Destruccion D', 'Emergencia D', 'Info 3.4 D', 'Info 3.6 D', 'Info 3.7 D', 'Evaluacion D', 'Ecotoxicologia D',
 130, 240, 1.18, 'Media', 'Media', 'Líquido', 'Espectros D', 'Extincion D', 'Solubilidad Agua D', 'Solubilidad Organicos D', 'Coeficiente D', 'Ligeramente Inflamable',
 85, 'No Explosivas', 'Media', 'Comburentes', 'Info 2.9 D', 'Info 2.10 D');
+
+
+-- Relacion entre sustancias activas y sus solicitantes
+-- Solicitudes para sustancias activas con su respectiva fecha
+INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
+VALUES ('Maria Lopez', 1000001, TO_DATE('2022-01-01', 'YYYY-MM-DD'));
+INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
+VALUES ('Antonio Garcia', 1000002, TO_DATE('2022-02-01', 'YYYY-MM-DD'));
+INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
+VALUES ('Isabel Martinez', 1000003, TO_DATE('2022-03-01', 'YYYY-MM-DD'));
+INSERT INTO SOLICITA_SUST_ACTIVA (nombre_solicitante, cod_desarrollo, fecha)
+VALUES ('Francisco Rodriguez', 1000004, TO_DATE('2022-04-01', 'YYYY-MM-DD'));
+
+-- Relacion entre sustancias activas y sus componentes
+-- Componentes de la sustancia activa 1000001
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000001, 'Componente A');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000001, 'Componente B');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000001, 'Componente C');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000001, 'Componente D');
+
+-- Componentes de la sustancia activa 1000002
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000002, 'Componente D');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000002, 'Componente E');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000002, 'Componente F');
+
+-- Componentes de la sustancia activa 1000003
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000003, 'Componente F');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000003, 'Componente G');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000003, 'Componente H');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000003, 'Componente I');
+
+-- Componentes de la sustancia activa 1000004
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000004, 'Componente J');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000004, 'Componente K');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000004, 'Componente L');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000004, 'Componente M');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000004, 'Componente N');
+INSERT INTO FORMADO (cod_desarrollo, nombre_comun_componente)
+VALUES (1000004, 'Componente O');
+
+
+-- Relacion entre sustancias activas y fabricantes
+-- Fabricante de la sustancia activa 1000001
+INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
+VALUES (1000001, 'Empresa A');
+INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
+VALUES (1000001, 'Empresa E');
+
+-- Fabricante de la sustancia activa 1000002
+INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
+VALUES (1000002, 'Empresa B');
+
+-- Fabricante de la sustancia activa 1000003
+INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
+VALUES (1000003, 'Empresa C');
+INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
+VALUES (1000003, 'Empresa F');
+INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
+VALUES (1000003, 'Empresa G');
+
+-- Fabricante de la sustancia activa 1000004
+INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
+VALUES (1000004, 'Empresa D');
+INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
+VALUES (1000004, 'Empresa H');
+INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
+VALUES (1000004, 'Empresa I');
+INSERT INTO FABRICARSE (cod_desarrollo, nombre_fabricante)
+VALUES (1000004, 'Empresa J');
+
