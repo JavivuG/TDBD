@@ -104,7 +104,7 @@ CREATE TABLE SUSTANCIA_ACTIVA (
     procedimientos_destruccion VARCHAR2(100),
     medidas_emergencia VARCHAR2(100),
     informacion_3_4 VARCHAR2(100),
-    informacion_3_6 VARCHAR2(100),
+    informacion_3_6 VARCHAR2(2500),
     informacion_3_7 VARCHAR2(100),
     evaluacion_ambiental VARCHAR2(100),
     estudios_ecotoxicologicos VARCHAR2(100),
