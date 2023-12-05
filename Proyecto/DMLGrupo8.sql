@@ -1,3 +1,4 @@
+-- DML Grupo 8
 -- Archivo con las consultas necesarias para responder tres transacciones del hito 1 
 
 -- 1. Consultar el nombre de los solicitantes de la sustancias activas con funcion “Herbicida”

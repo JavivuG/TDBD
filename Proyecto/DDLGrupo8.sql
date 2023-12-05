@@ -1,6 +1,5 @@
---------------------------------------------------------------------------|
----------------------------COMPARTIDOS------------------------------------|
---------------------------------------------------------------------------|
+-- DDL Grupo 8
+
 -----------------
 -- SOLICITANTE --
 -----------------
@@ -9,22 +8,10 @@ CREATE TABLE SOLICITANTE (
     nombre_solicitante VARCHAR2(50) PRIMARY KEY,
     direccion VARCHAR2(100)
 );
-----------------
--- FABRICANTE --
-----------------
-DROP TABLE FABRICANTE CASCADE CONSTRAINTS;
-CREATE TABLE FABRICANTE (
-    nombre_fabricante VARCHAR2(50) PRIMARY KEY,
-    direccion VARCHAR2(100)
-);
 
-
---------------------------------------------------------------------------|
----------------------------PARTE_SUSTANCIA_ACTIVA-------------------------|
---------------------------------------------------------------------------|
-------------------------
--- UNIFICADA_CONTACTO --
-------------------------
+--------------
+-- CONTACTO --
+--------------
 DROP TABLE CONTACTO CASCADE CONSTRAINTS;
 CREATE TABLE CONTACTO (
     tlf NUMBER PRIMARY KEY,
@@ -37,12 +24,23 @@ CREATE TABLE CONTACTO (
     CONSTRAINT check_digitos_fax0 CHECK (fax > 0 AND LENGTH(TO_CHAR(fax)) = 10)
 );
 
---------------------------------------------------------------------------|
----------------------------PARTE_SUSTANCIA_ACTIVA-------------------------|
---------------------------------------------------------------------------|
-------------------------
--- UNIFICADA_CONTACTO --
-------------------------
+
+-------------------------------------------------------------------------------|
+---------------------------PARTE DE SUSTANCIAS ACTIVAS-------------------------|
+-------------------------------------------------------------------------------|
+
+----------------
+-- FABRICANTE --
+----------------
+DROP TABLE FABRICANTE CASCADE CONSTRAINTS;
+CREATE TABLE FABRICANTE (
+    nombre_fabricante VARCHAR2(50) PRIMARY KEY,
+    direccion VARCHAR2(100)
+);
+
+-------------------------
+-- CONTACTO_FABRICANTE --
+-------------------------
 DROP TABLE CONTACTO_FABRICANTE CASCADE CONSTRAINTS;
 CREATE TABLE CONTACTO_FABRICANTE (
     tlf NUMBER PRIMARY KEY,
@@ -172,9 +170,13 @@ CREATE TABLE FABRICARSE (
 );
 
 
-------------------------------------------------------------------------|
----------------------------PARTE_MICROOGANISMOS-------------------------|
-------------------------------------------------------------------------|
+
+
+---------------------------------------------------------------------------|
+---------------------------PARTE DE MICROOGANISMOS-------------------------|
+---------------------------------------------------------------------------|
+
+
 ---------------
 -- PRODUCTOR --
 ---------------

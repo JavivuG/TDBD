@@ -1,4 +1,5 @@
--- Consultas
+-- Consultas Grupo 8
+-- Archivo con la resolucion a las consultas del enunciado del hito 2
 -- 1. Listado de personas de contacto de las solicitudes presentadas durante el mes de enero de 2023.
 (SELECT c.nombre_contacto FROM contacto c JOIN solicita_sust_activa sol_sust ON c.nombre_solicitante = sol_sust.nombre_solicitante
 WHERE (EXTRACT(MONTH FROM sol_sust.fecha) = 1 AND EXTRACT(YEAR FROM sol_sust.fecha) = 2023))

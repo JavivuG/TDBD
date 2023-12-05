@@ -1,3 +1,6 @@
+-- DMLInsercion Grupo 8
+-- Archivo con las inserciones para poblar la base de datos
+
 -- SOLICITANTE 
 INSERT INTO SOLICITANTE (nombre_solicitante, direccion) 
 VALUES ('Maria Lopez', 'Calle Gran Via, 123, Madrid');
