@@ -257,3 +257,40 @@ CREATE TABLE PRODUCE (
     FOREIGN KEY (nombre_productor) REFERENCES PRODUCTOR(nombre_productor),
     CONSTRAINT numero_entrada2 CHECK (numero_entrada > 0 AND LENGTH(TO_CHAR(numero_entrada)) <= 5)
 );
+
+
+-- Restricciones del enunciado del hito 2
+-- 6. Implementar la restricción que garantiza que si una sustancia tiene alguno de los efectos nocivos indicados en el ítem 3.2, también estará en la base de datos la información relativa a los métodos y protecciones recomendadas que requiere el ítem 3.6
+
+CREATE OR REPLACE TRIGGER sustancia_activa_trigger
+BEFORE INSERT ON SUSTANCIA_ACTIVA
+FOR EACH ROW
+BEGIN
+    IF :NEW.efectos_org_nocivos IN (
+        'Accion por contacto',
+        'Accion por ingestion',
+        'Accion por inhalacion',
+        'Accion fungitoxica',
+        'Accion fungistatica',
+        'Desecante',
+        'Inhibidor de la reproduccion'
+    ) THEN
+    -- Si hay un efecto nocivo de los anteriores, se anade la informacion del articulo 31 correspondiente
+    :NEW.informacion_3_6 := '1.El proveedor proporcionara una ficha de datos de seguridad para sustancias o preparados peligrosos o incluidos en una lista específica. 2.Los agentes de la cadena de suministro deben garantizar coherencia entre la ficha de datos y la valoración de seguridad química. 3.Se proporcionará la ficha para preparados no peligrosos, pero con sustancias peligrosas en concentraciones específicas. 4.No es obligatorio proporcionar la ficha para preparados peligrosos ofrecidos al publico, salvo solicitud de un usuario intermedio o distribuidor. 5.La ficha, en un idioma oficial, incluira informacion sobre identificación, peligros, composición, primeros auxilios, medidas contra incendios, almacenamiento, etc. 6.Incluira informacion sobre exposicion, propiedades fisicas y quimicas, estabilidad, reactividad, toxicologia, ecologia, eliminacion, transporte, regulacion y otra informacion. 7.Los agentes de la cadena de suministro adjuntaran escenarios de exposicion relevantes al elaborar informes sobre seguridad química. 8.La ficha se facilitara gratuitamente y debera actualizarse ante nueva informacion relevante para la gestion de riesgos o peligros, autorización o restriccion. 9.Los proveedores deberan actualizarla ante nueva informacion relevante para la gestion de riesgos, o de nueva informacion sobre peligros; cuando se haya concedido o denegado una autorizacion; cuando se imponga una restriccion.';
+    END IF;
+END;
+/
+
+-- 7. Implementar la restricción que garantiza que todos los efectos nocivos que se asocian a una sustancia activa se corresponden con alguno de los recogidos en el catálogo del ítem 3.2.1.
+CREATE OR REPLACE TRIGGER check_efectos_nocivos
+BEFORE INSERT OR UPDATE OF efectos_org_nocivos ON SUSTANCIA_ACTIVA
+FOR EACH ROW
+DECLARE
+BEGIN
+    -- Verificar si el nuevo efecto nocivo está permitido
+    IF :NEW.efectos_org_nocivos
+    NOT IN ('Accion por contacto', 'Accion por ingestion', 'Accion por inhalacion','Accion fungitoxica','Accion fungistatica','Desecante','Inhibidor de la reproduccion') THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Efecto nocivo no permitido.');
+    END IF;
+END;
+/
