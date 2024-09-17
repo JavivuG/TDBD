@@ -18,6 +18,6 @@ El objetivo de este proyecto es aplicar los conocimientos adquiridos en la asign
 
 ### Diagrama Entidad/Relacion
 La base de datos está definida por el siguiente diagrama Entidad/Relación:
-[![Diagrama](https://imgur.com/a/e49bAEk)]
+[![Diagrama](https://imgur.com/tZckyei)]
 
 ### Requisitos
