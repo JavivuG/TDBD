@@ -1,6 +1,6 @@
 # Proyecto de Tecnología y Diseño de Bases de Datos (TDBD)
 
-Repositorio del proyecto de la asignatura Tecnología y Diseño de Bases de Datos (TDBD) para el curso 2023-2024 de la Universidad de Valladolid. En este repositorio, encontrarás información importante sobre el proyecto, incluyendo el enunciado y las directrices para la base de datos.
+Repositorio del proyecto de la asignatura Tecnología y Diseño de Bases de Datos (TDBD) para el curso 2023-2024 de la Universidad de Valladolid. En este repositorio, encontrarás el proyecto realizado en dicha asignatura que consta desde el diseño a la creación de la base de datos y, posteriormente, la realización de algunas consultas de prueba.
 
 ## Enunciado del Proyecto
 
@@ -13,3 +13,11 @@ Los datos para la creación de la base de datos se encuentran en el archivo [reg
 ## Objetivo del Proyecto
 
 El objetivo de este proyecto es aplicar los conocimientos adquiridos en la asignatura de Tecnología y Diseño de Bases de Datos para realizar el modelo E/R y despues aplicarlo a modelos relacionales
+
+## Base de Datos
+
+### Diagrama Entidad/Relacion
+La base de datos está definida por el siguiente diagrama Entidad/Relación:
+[![Diagrama](https://imgur.com/a/e49bAEk)]
+
+### Requisitos
